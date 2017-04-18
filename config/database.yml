@@ -7,7 +7,7 @@ development:
   <<: *default
   database: building_blocks_back_end_development
 
-test:
+test: &test
   <<: *default
   database: building_blocks_back_end_test
 
@@ -16,3 +16,6 @@ production:
   database: building_blocks_back_end_production
   username: building_blocks_back_end
   password: <%= ENV['BUILDING_BLOCKS_BACK_END_DATABASE_PASSWORD'] %>
+
+cucumber:
+  <<: *test
