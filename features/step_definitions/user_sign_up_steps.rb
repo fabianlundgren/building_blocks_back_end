@@ -7,5 +7,5 @@ Given(/^I click link "([^"]*)"$/) do |link|
 end
 
 Given(/^I am on the registration page$/) do
-  visit new_admin_registration_path
+  visit new_user_registration_path
 end
