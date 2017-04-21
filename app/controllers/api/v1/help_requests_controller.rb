@@ -1,4 +1,4 @@
-class Api::V1::HelpRequestsController < ActionController::API
+class Api::V1::HelpRequestsController < ApiController
   def create
     @help_request = HelpRequest.new help_request_params
     if @help_request.save

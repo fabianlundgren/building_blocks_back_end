@@ -1,6 +1,9 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  VALID_ROLES = ['admin', 'janitor', 'tenant']
+  # Include default devise modules.
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+          :recoverable, :rememberable, :trackable, :validatable
+  include DeviseTokenAuth::Concerns::User
+
+  validates :role, inclusion: {in: VALID_ROLES, message: '%{value} is not a valid user role'}
 end
