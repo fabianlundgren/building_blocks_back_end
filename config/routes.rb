@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'registrations'
+  }
   devise_scope :user do
     authenticated :user do
-      root :to => 'index#index'
+      root to: 'index#index'
     end
     unauthenticated :user do
-      root :to => 'devise/registrations#new', as: :unauthenticated_root
+      root to: 'devise/registrations#new', as: :unauthenticated_root
     end
   end
 

@@ -3,14 +3,16 @@ Feature: Admin sign up
   In order to access admin account
   I would like to be able to sign up
 
- Scenario: I create an account
+ Scenario: I create an admin account
    Given I am on the root page
    Then I should see "Sign up"
    And I fill in "Email" with "morgan@morgan.com"
+   And I select "admin" from "Role"
    And I fill in "Password" with "12345678"
    And I fill in "Password confirmation" with "12345678"
    And I click "Sign up"
-   Then I should see "You have signed up successfully."
+   And I should see "You have signed up successfully."
+   Then "morgan@morgan.com" should be marked as "admin"
 
  Scenario: I create an account without e-mail
    Given I am on the registration page

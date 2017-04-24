@@ -9,3 +9,12 @@ end
 Given(/^I am on the registration page$/) do
   visit new_user_registration_path
 end
+
+Then(/^I select "([^"]*)" from "([^"]*)"$/) do |option, role|
+  select option, from: role
+end
+
+Then(/^"([^"]*)" should be marked as "([^"]*)"$/) do |email, option|
+  user = User.find_by(email: email)
+  expect(user.role).to eq option
+end
