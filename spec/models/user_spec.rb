@@ -9,7 +9,18 @@ RSpec.describe User, type: :model do
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :email }
+  end
 
+  describe 'Custom Validations' do
+    it 'has a default user role of tenant' do
+      expect(subject.role).to eq 'tenant'
+    end
+
+    it 'has a user role of clown' do
+      subject.role = 'clown'
+      subject.save
+      expect(subject.errors.full_messages).to include 'Role clown is not a valid user role'
+    end
   end
 
   describe 'Factory' do
