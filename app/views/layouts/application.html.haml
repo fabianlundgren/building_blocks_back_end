@@ -7,6 +7,20 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    .head
+      = image_tag('logo4.png',  size: "650x100")
+    %ul.menu.menu-desktop
+      %li
+        = link_to 'Home', root_path
+      %li
+        = link_to 'Sign up', new_admin_registration_path
+      %li
+        = link_to 'Help requests', help_requests_path
+      %li
+        = link_to 'Facilities', new_facility_path
+      %li
+        = link_to 'New Work order', new_workorder_path
+        
     %p.alert= alert
     - if flash[:notice]
       .notice= flash[:notice]

@@ -1,1 +1,25 @@
 %h3 Hello! Welcome to Building blockz administration
+
+%table{style: "width:100%"}
+  %tr
+    %th
+      %h3 Urgent Help requests
+    %th
+      %h3 Latest News
+    %th
+      %h3 Work orders status
+  %tr
+    %th
+      - @help_requests.each do |help|
+        .helpr
+          %h3= help.title
+          = help.message
+          %br
+          = link_to 'Create work' , new_workorder_path(help.id), class: 'w_link'
+    %th
+      - @news.each do |news|
+        .new
+          %h3
+            = news.title
+          = news.description
+    %th Pending

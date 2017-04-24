@@ -44,9 +44,11 @@ ActiveRecord::Schema.define(version: 20170421130708) do
   create_table "help_requests", force: :cascade do |t|
     t.string   "title"
     t.string   "message"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "urgent",     default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "urgent",       default: false
+    t.integer  "workorder_id"
+    t.index ["workorder_id"], name: "index_help_requests_on_workorder_id", using: :btree
   end
 
   create_table "news", force: :cascade do |t|
@@ -83,4 +85,18 @@ ActiveRecord::Schema.define(version: 20170421130708) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   end
 
+  create_table "workorders", force: :cascade do |t|
+    t.string   "title"
+    t.string   "message"
+    t.string   "location"
+    t.boolean  "urgent",          default: false
+    t.string   "status",          default: "pending"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "help_request_id"
+    t.index ["help_request_id"], name: "index_workorders_on_help_request_id", using: :btree
+  end
+
+  add_foreign_key "help_requests", "workorders"
+  add_foreign_key "workorders", "help_requests"
 end

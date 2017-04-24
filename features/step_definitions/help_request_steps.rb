@@ -1,6 +1,6 @@
 Given(/^the following help request messages exist$/) do |table|
   table.hashes.each do |hash|
-    create(:help_request, title: hash[:title], message: hash[:message])
+    create(:help_request, title: hash[:title], message: hash[:message], urgent: hash[:urgent])
   end
 end
 

@@ -1,0 +1,41 @@
+%h3 Send work order
+- if @help_requests == nil
+  = form_for(@workorder) do |f|
+    .field
+      = f.label :title
+      %br/
+      = f.text_field :title
+    .field
+      = f.label :message
+      %br/
+      = f.text_area :message
+    .field
+      = f.label :location
+      %br/
+      = f.text_field :location
+    .field
+      = f.label :urgent
+      %br/
+      = f.check_box(:urgent, {}, true, false)
+    .actions
+      = f.submit "Send"
+- else
+  = form_for(@workorder) do |f|
+    .field
+      = f.label :title
+      %br/
+      = f.text_field :title, value: @help_requests.title
+    .field
+      = f.label :message
+      %br/
+      = f.text_area :message, value: @help_requests.message
+    .field
+      = f.label :location
+      %br/
+      = f.text_field :location
+    .field
+      = f.label :urgent
+      %br/
+      = f.check_box(:urgent, {checked: @help_requests.urgent}, true, false)
+    .actions
+      = f.submit "Send"
