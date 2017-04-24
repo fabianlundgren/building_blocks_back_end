@@ -13,14 +13,14 @@
       %li
         = link_to 'Home', root_path
       %li
-        = link_to 'Sign up', new_admin_registration_path
+        = link_to 'Sign up', new_user_registration_path
       %li
         = link_to 'Help requests', help_requests_path
       %li
         = link_to 'Facilities', new_facility_path
       %li
         = link_to 'New Work order', new_workorder_path
-        
+
     %p.alert= alert
     - if flash[:notice]
       .notice= flash[:notice]

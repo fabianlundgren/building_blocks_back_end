@@ -4,6 +4,9 @@ Feature: add layout and information to index
   I would like to be able to see important info on index page and links to important features
 
   Background:
+    Given the following user exist
+      | email           | password  | password_confirmation |
+      | nubbe@nubbe.com | 12345678  | 12345678              |
     Given the following help request messages exist
       | title   | message         | urgent |
       | Fabian  | With peeing dog | true   |
@@ -14,6 +17,7 @@ Feature: add layout and information to index
       | new lift     | no more stairs  |
 
     Scenario: Call for help messages are displayed
+      Given I am logged in as "nubbe@nubbe.com"
       Given I am on the index page
       And I should see "Fabian"
       And I should see "With peeing dog"

@@ -21,3 +21,18 @@ end
 Given(/^I should not see "([^"]*)"$/) do |content|
   expect(page).not_to have_content content
 end
+
+Given(/^I am on the index page$/) do
+  visit root_path
+end
+
+Given(/^the following user exist$/) do |table|
+  table.hashes.each do |hash|
+   create(:user, hash)
+  end
+end
+
+Given(/^I am logged in as "([^"]*)"$/) do |email|
+  user = User.find_by(email: email)
+  login_as(user, scope: :user)
+end
