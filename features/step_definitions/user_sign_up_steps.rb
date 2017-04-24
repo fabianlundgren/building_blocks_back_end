@@ -10,8 +10,8 @@ Given(/^I am on the registration page$/) do
   visit new_user_registration_path
 end
 
-Then(/^I select "([^"]*)" from "([^"]*)"$/) do |option, role|
-  select option, from: role
+Then(/^I select "([^"]*)" from "([^"]*)"$/) do |option, choices|
+  select option, from: choices
 end
 
 Then(/^"([^"]*)" should be marked as "([^"]*)"$/) do |email, option|

@@ -26,7 +26,7 @@ Given(/^I am on the index page$/) do
   visit root_path
 end
 
-Given(/^the following user exist$/) do |table|
+Given(/^the following users exist$/) do |table|
   table.hashes.each do |hash|
    create(:user, hash)
   end

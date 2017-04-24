@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
       expect(subject.role).to eq 'tenant'
     end
 
-    it 'has a user role of clown' do
+    it 'cannot set a non-approved role' do
       subject.role = 'clown'
       subject.save
       expect(subject.errors.full_messages).to include 'Role clown is not a valid user role'

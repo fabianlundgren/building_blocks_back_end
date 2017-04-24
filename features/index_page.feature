@@ -4,7 +4,7 @@ Feature: add layout and information to index
   I would like to be able to see important info on index page and links to important features
 
   Background:
-    Given the following user exist
+    Given the following users exist
       | email           | password  | password_confirmation |
       | nubbe@nubbe.com | 12345678  | 12345678              |
     Given the following help request messages exist
