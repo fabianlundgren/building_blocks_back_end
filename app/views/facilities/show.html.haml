@@ -13,9 +13,10 @@
   - else
     current schedule
     %br
-    = link_to "Update timeslots", facility_timeslot_path(params[:id], 3), method: :delete
+
     - @facility.timeslots.order(:created_at).each do |timeslot|
       = timeslot.start_time
       -
       = timeslot.end_time
       %br
+    = link_to "Update timeslots", facility_timeslot_path(params[:id], 3), method: :delete, class: 'button success'

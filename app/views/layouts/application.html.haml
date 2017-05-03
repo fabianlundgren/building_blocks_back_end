@@ -25,22 +25,23 @@
             %li
               = link_to 'Home', root_path
             %li
-              = link_to 'Sign up', new_user_registration_path
-            %li
               = link_to 'Help requests', help_requests_path
             %li
-              = link_to 'Facilities', new_facility_path
+              = link_to 'Facilities', facilities_path
             %li
               = link_to 'News', news_index_path
             %li
               = link_to 'New Work order', new_workorder_path
             %li
               = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
-
+            - if current_user == nil
+              %li
+                = link_to 'Sign up', new_user_registration_path
     .body
       .alert= alert
       - if flash[:notice]
         .notice= flash[:notice]
     = yield
+    %br
     .footer
       BuildingBlockz inc

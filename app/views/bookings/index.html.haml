@@ -1,31 +1,33 @@
-%h1 Listing bookings
+.base
+  %h3 Listing bookings
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Start time
-      %th
-      %th
-      %th
 
-  %tbody
-    - @bookings.each do |booking|
-      %tr
-        %td= booking.name
-        %td= booking.start_time
-        %td= link_to 'Show', facility_booking_path(@facility, booking)
-        %td= link_to 'Edit', edit_facility_booking_path(@facility, booking)
-        %td= link_to 'Destroy', facility_booking_path(@facility, booking), method: :delete, data: { confirm: 'Are you sure?' }
+  %br
+  .row
+    = link_to 'New Booking', new_facility_booking_path
+    = month_calendar events: @bookings do |date, bookings|
+      = link_to new_facility_booking_path(@facility, date: date) do
+        %div
+          = date.strftime('%d')
+          - bookings.each do |booking|
+            .cal
+              = booking.name
+              = booking.start_time.strftime('%H:%M')
+  .row
+    %table
+      %thead
+        %tr
+          %th Name
+          %th Start time
+          %th
+          %th
+          %th
 
-%br
-
-= link_to 'New Booking', new_facility_booking_path
-= month_calendar events: @bookings do |date, bookings|
-  = link_to new_facility_booking_path(@facility, date: date) do
-    %div
-      = date.strftime('%d')
-      - bookings.each do |booking|
-        .cal
-          = booking.name
-          = booking.start_time.strftime('%H:%M')
+      %tbody
+        - @bookings.each do |booking|
+          %tr
+            %td= booking.name
+            %td= booking.start_time
+            %td= link_to 'Show', facility_booking_path(@facility, booking)
+            %td= link_to 'Edit', edit_facility_booking_path(@facility, booking)
+            %td= link_to 'Destroy', facility_booking_path(@facility, booking), method: :delete, data: { confirm: 'Are you sure?' }

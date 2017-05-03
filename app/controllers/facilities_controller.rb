@@ -20,9 +20,17 @@ class FacilitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @facility = Facility.find(params[:id])
+    if @facility.destroy
+      flash[:notice] = "Facility Deleted!"
+      redirect_back(fallback_location: facilities_path)
+    end
+  end
+
   private
 
   def facility_params
-    params.require(:facility).permit(:name, :description, :status, :rules )
+    params.require(:facility).permit(:name, :description, :status, :rules)
   end
 end

@@ -6,4 +6,5 @@
         = link_to help.title, new_workorder_path(help.id)
         %br
         = help.message
-
+        %br
+        = link_to "Delete", "/help_requests/#{help.id})", method: :delete, class: 'button tiny alert'
