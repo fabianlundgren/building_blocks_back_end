@@ -1,22 +1,14 @@
-%h3 Hello! Welcome to Building blockz administration
-.row.facil 
-  - @facilities.each do | facility |
-    .large-2.medium-2.columns
-      = link_to image_tag('facility.png', size: "100x100"), facility_path(facility.id)
-      %br
-      = link_to facility.name, facility_path(facility.id)
-
 %table
   %tr
     %th.help
       .helph
-        %h3 Urgent Help requests
+        %h4 Urgent Help requests
     %th.news
       .newsh
-        %h3 Latest News
+        %h4 Latest News
     %th.work
       .workh
-        %h3 Work orders status
+        %h4  Work orders status
   %tr
     %th.help
       - @help_requests.each do |help|

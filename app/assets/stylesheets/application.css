@@ -17,6 +17,7 @@
 
 .head {
   padding: 5px;
+  text-align: center;
 }
 .footer {
     background-color: #333;
@@ -67,6 +68,7 @@ th {
 }
 
 .alert {
+   font-family: 'Julius Sans One', sans-serif;
    background-color: #f2dede ;
    border-color: #eed3d7 ;
    color: #b94a48 ;
@@ -74,6 +76,7 @@ th {
 }
 
 .notice {
+   font-family: 'Julius Sans One', sans-serif;
    background-color: #dff0d8 ;
    border-color: #d6e9c6 ;
    color: #468847 ;
@@ -134,4 +137,18 @@ th {
   padding: 4px;
   background-color: #444;
   color: #fff;
+}
+
+h3 {
+
+}
+
+h4 {
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+ul.menu.menu-desktop {
+  display: inline;
+  text-align: center;
+  font-family: 'Julius Sans One', sans-serif;
 }
