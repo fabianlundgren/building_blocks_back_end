@@ -7,6 +7,6 @@
   %b Start time:
   = @booking.start_time
 
-= link_to 'Edit', edit_facility_booking_path(@facility, @booking)
+= link_to 'Edit', edit_facility_booking_path(@facility, @booking), class: 'button inc'
 \|
-= link_to 'Back', facility_bookings_path(@facility)
+= link_to 'Back', facility_bookings_path(@facility), class: 'button inc'

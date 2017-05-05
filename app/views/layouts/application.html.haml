@@ -8,7 +8,7 @@
 
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
 
-    %title= content_for?(:title) ? yield(:title) : "Untitled"
+    %title= content_for?(:title) ? yield(:title) : "Build blockz"
 
     = stylesheet_link_tag "application"
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -20,6 +20,7 @@
       - if current_user
         - if current_user.role == 'janitor'
           Janitor
+          = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
         - else
           %ul.menu.menu-desktop
             %li

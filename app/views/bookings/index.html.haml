@@ -4,7 +4,6 @@
 
   %br
   .row
-    = link_to 'New Booking', new_facility_booking_path
     = month_calendar events: @bookings do |date, bookings|
       = link_to new_facility_booking_path(@facility, date: date) do
         %div
@@ -13,7 +12,8 @@
             .cal
               = booking.name
               = booking.start_time.strftime('%H:%M')
-  .row
+.row
+  .div
     %table
       %thead
         %tr
@@ -28,6 +28,5 @@
           %tr
             %td= booking.name
             %td= booking.start_time
-            %td= link_to 'Show', facility_booking_path(@facility, booking)
-            %td= link_to 'Edit', edit_facility_booking_path(@facility, booking)
-            %td= link_to 'Destroy', facility_booking_path(@facility, booking), method: :delete, data: { confirm: 'Are you sure?' }
+            %td= link_to 'Show', facility_booking_path(@facility, booking), class: 'button tiny inc'
+            %td= link_to 'Destroy', facility_booking_path(@facility, booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button tiny inc'

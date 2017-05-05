@@ -20,7 +20,7 @@
   text-align: center;
 }
 .footer {
-    background-color: #333;
+    background-color: #23c1a0;
     color: white;
     padding: 2px;
     padding-right: 5px;
@@ -54,31 +54,6 @@
 .stat_red {
     background-color: #FC8282;
     color: #C33333;
-    width:30px;
-    height:30px;
-    border-radius:50px;
-    font-size:8px;
-    color:#fff;
-    line-height:30px;
-    text-align:center;
-}
-
-.stat_blue {
-    background-color: #96ECFE;
-    color: #3E99AC;
-    width:30px;
-    height:30px;
-    border-radius:50px;
-    font-size:8px;
-    color:#fff;
-    line-height:30px;
-    text-align:center;
-    position: relative;
-}
-
-.stat_grey {
-    background-color: #6C6C6C;
-    color: #D5D5D5;
     width:30px;
     height:30px;
     border-radius:50px;
@@ -122,7 +97,7 @@ th {
 
 .simple-calendar {
   width: 1024px;
-  height: 600px;
+  height: 740px;
 }
 
 .day {
@@ -132,11 +107,14 @@ th {
 }
 
 .today {
-  background-color: #FC8282;
+  background-color: #23c1a0;
+  opacity: 0.3;
 }
 
 .cal {
-  background-color: #158E07;
+  padding-left: 2px;
+  background-color: #23c1a0;
+  color: #fff;
 }
 
 .row.facil {
@@ -189,4 +167,8 @@ ul.menu.menu-desktop {
 
 .card-divider {
   background-color: #fff
+
+.button.inc {
+  background-color: #23c1a0;
+
 }

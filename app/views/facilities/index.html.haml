@@ -6,7 +6,7 @@
         %br
         = facility.description
         %br
-        = link_to 'Mange bookings', facility_bookings_path(facility.id), class: 'button tiny success'
+        = link_to 'Mange bookings', facility_bookings_path(facility.id), class: 'button tiny inc'
         = link_to "Delete", "/facilities/#{facility.id}", method: :delete, class: 'button tiny alert'
   %br
-  = link_to 'New Facility', new_facility_path, class: 'button success'
+  = link_to 'New Facility', new_facility_path, class: 'button inc'

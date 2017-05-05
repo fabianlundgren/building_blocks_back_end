@@ -3,7 +3,7 @@ class IndexController < ApplicationController
     @help_requests = HelpRequest.where(urgent: true).last(10)
     @news = News.last(5)
     @facilities = Facility.all
-    @workorder = Workorder.last(10)
+    @workorder = Workorder.last(5)
     if current_user.role == 'janitor'
       redirect_to '/workorders'
     end

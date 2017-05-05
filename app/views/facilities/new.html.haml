@@ -14,8 +14,8 @@
       %br/
       = f.text_field :rules
     .field
-      = f.label 'Available'
+      = f.label 'Available', class: 'button inc'
       %br/
       = f.check_box(:status, {}, true, false)
     .actions
-      = f.submit "Submit"
+      = f.submit "Submit", class: 'button inc'

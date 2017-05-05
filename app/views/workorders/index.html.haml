@@ -13,5 +13,5 @@
           = work.location
           = form_tag workorder_path(work.id), {method: :patch} do
             = label_tag :status
-            = select_tag :status, options_for_select(['Pending','Next week','In progress','Unable to complete','Done', 'Pending'], selected: work.status)
-            = submit_tag "Update status", class: 'round button'
+            = select_tag :status, options_for_select(['In progress','Unable to complete','Done'], selected: work.status)
+            = submit_tag "Update status", class: 'button inc'

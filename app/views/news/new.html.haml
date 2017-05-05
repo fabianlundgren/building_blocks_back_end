@@ -10,7 +10,7 @@
       %br/
       = f.text_area :description
     .actions
-      = f.submit "Submit"
+      = f.submit "Submit", class: 'button inc', class: 'button inc'
 
   - if flash[:notice]
     .notice= flash[:notice]

@@ -19,7 +19,7 @@
         %br/
         = f.check_box(:urgent, {}, true, false)
       .actions
-        = f.submit "Send"
+        = f.submit "Send", class: 'button inc'
   - else
     = form_for @workorder, url: workorders_path(help_request_id: @help_request.id),method: 'post' do |f|
       .field
@@ -39,4 +39,4 @@
         %br/
         = f.check_box(:urgent, {checked: @help_request.urgent}, true, false)
       .actions
-        = f.submit "Send"
+        = f.submit "Send", class: 'button inc'
