@@ -1,17 +1,18 @@
 %h4 New booking
 %br
 %h4 Available times
-= params[:date]
-- @facility.timeslots.order(:created_at).each do |timeslot|
-  - if @bookings.find_by(start_time: "#{@date} #{timeslot.start_time}") == nil
-    %br
-    = link_to "Time #{timeslot.start_time}-#{timeslot.end_time}", "/facilities/#{params[:facility_id]}/bookings?" + {date: "#{params[:date]} #{timeslot.start_time}"}.to_param, method: :post, class: 'button inc'
-    %br
-  - else
-    %br
-    %p.booking Booked
-    = timeslot.start_time
-    = timeslot.end_time
-    %br
-%br
-= link_to 'Back', facility_bookings_path(@facility), class: 'button inc'
+.nisse
+  = params[:date]
+  - @facility.timeslots.order(:created_at).each do |timeslot|
+    - if @bookings.find_by(start_time: "#{@date} #{timeslot.start_time}") == nil
+      %br
+      = link_to "Time #{timeslot.start_time}-#{timeslot.end_time}", "/facilities/#{params[:facility_id]}/bookings?" + {date: "#{params[:date]} #{timeslot.start_time}"}.to_param, method: :post, class: 'button inc'
+      %br
+    - else
+      %br
+      %p Booked
+      = timeslot.start_time
+      = timeslot.end_time
+      %br
+  %br
+  = link_to 'Back', facility_bookings_path(@facility), class: 'button inc'

@@ -222,6 +222,12 @@ p {
   text-align: left;
 }
 
-p.help, .work {
+p.help, .work, .booking {
   text-align: center;
+}
+
+.nisse {
+  position: absolute;
+    left: 50%;
+    margin-left: -100px;  
 }
