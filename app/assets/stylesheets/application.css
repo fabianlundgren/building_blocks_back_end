@@ -82,7 +82,7 @@
     color:#fff;
     line-height:30px;
     text-align:center;
-    position: relative;
+    position: absolute;
 }
 
 .stat_urgent {
@@ -97,6 +97,7 @@
     text-align:center;
     position: absolute;
 }
+
 
 .card {
   font-family: 'Julius Sans One', sans-serif;
