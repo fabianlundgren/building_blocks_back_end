@@ -2,9 +2,10 @@
   %h3 Help request messages
   .row
     - @help_requests.each do |help|
-      .large-3.medium-3.columns
-        = link_to help.title, new_workorder_path(help.id)
-        %br
+      .large-4.medium-4.columns
+        .card
+          .newh
+            = help.title
         = help.message
         %br
         = link_to "Delete", "/help_requests/#{help.id})", method: :delete, class: 'button tiny alert'

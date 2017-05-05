@@ -66,7 +66,7 @@
 .card {
   font-family: 'Julius Sans One', sans-serif;
   width: 100%;
-  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  /*box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);*/
 }
 
 th {
@@ -134,19 +134,21 @@ th {
   color: #666;
 }
 
-.large-3.medium-3.columns {
-  padding: 10px;
+.large-4.medium-4.columns {
+  padding: 4px;
   float: left;
   box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  text-align: center;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 .base{
   padding: 10px;
 }
 
-.large-4.medium-4.columns {
+/*.large-4.medium-4.columns {
   padding: 4px;
-}
+}*/
 
 .newh {
   padding: 4px;
@@ -155,8 +157,9 @@ th {
 }
 
 
-h4 {
+h4, h3 {
   font-family: 'Julius Sans One', sans-serif;
+  text-align: center;
 }
 
 ul.menu.menu-desktop {
@@ -171,5 +174,4 @@ ul.menu.menu-desktop {
 
 .button.inc {
   background-color: #23c1a0;
-
 }
