@@ -16,7 +16,7 @@
           .card-divider
             = help.title
             %hr/
-            %p
+            %p.help
               = help.message
           %br
           - if help.workorder_id == nil
@@ -42,6 +42,5 @@
               .stat_red
             = work.title
             %hr/
-            %p
+            %p.work
               = work.message
-

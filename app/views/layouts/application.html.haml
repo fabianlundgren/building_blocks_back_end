@@ -17,6 +17,7 @@
   %body
     .head
       = image_tag('logo4.png',  size: "650x100")
+      %br
       - if current_user
         - if current_user.role == 'janitor'
           Janitor

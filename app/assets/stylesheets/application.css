@@ -14,17 +14,36 @@
  *= require_self
  *= require foundation_and_overrides
  */
+ .head {
+   padding: 5px;
+   text-align: center;
+  }
 
-.head {
-  padding: 5px;
-  text-align: center;
+ html{
+   position:relative;
+   min-height: 100%;
+ }
+
+ html,body{
+  margin:0;
+  padding:0;
 }
+
+.pageContentWrapper {
+  margin-bottom: 25px;
+}
+
 .footer {
     background-color: #23c1a0;
     color: white;
-    padding: 2px;
-    padding-right: 5px;
     text-align: right;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+    font-family: 'Julius Sans One', sans-serif;
+
 }
 
 .stat_green {
@@ -177,10 +196,19 @@ ul.menu.menu-desktop {
 
 .button.inc {
   background-color: #23c1a0;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 p {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 15px;
   text-align: left;
+}
+
+p.help {
+  text-align: center;
+}
+
+p.work {
+  text-align: center;
 }
