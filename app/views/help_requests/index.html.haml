@@ -5,7 +5,7 @@
       .large-4.medium-4.columns
         .card
           .newh
-            = help.title
+            = link_to help.title, new_workorder_path(help.id)
         = help.message
         %br
         = link_to "Delete", "/help_requests/#{help.id})", method: :delete, class: 'button tiny alert'
