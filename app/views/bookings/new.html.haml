@@ -1,6 +1,6 @@
 %h1 New booking
 %br
-Availible times
+%h4 Available times
 = params[:date]
 - @facility.timeslots.order(:created_at).each do |timeslot|
   - if @bookings.find_by(start_time: "#{@date} #{timeslot.start_time}") == nil
@@ -9,7 +9,7 @@ Availible times
     %br
   - else
     %br
-    bookt
+    %p.booking Booked
     = timeslot.start_time
     = timeslot.end_time
     %br

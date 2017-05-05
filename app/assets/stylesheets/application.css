@@ -133,17 +133,20 @@ th {
 .simple-calendar {
   width: 1024px;
   height: 740px;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 .day {
   height: 140px;
   vertical-align: top;
   min-width:140px;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 .today {
   background-color: #23c1a0;
   opacity: 0.3;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 .cal {
@@ -218,10 +221,6 @@ p {
   text-align: left;
 }
 
-p.help {
-  text-align: center;
-}
-
-p.work {
+p.help, .work, .booking {
   text-align: center;
 }
