@@ -1,17 +1,21 @@
 .base
-  %ul.large-block-grid-3
-    %h3 Work orders
+  %h3 Work orders
+  .row
     - @workorders.each do |work|
-      %li
-        .card.work
-          .card-divider
+      .large-4.medium-4.columns
+        .card
+          .newh
+            - if work.urgent == true
+              .stat_urgent
             = work.title
-          Message
-          %br
-          = work.message
-          %br Location
-          = work.location
-          = form_tag workorder_path(work.id), {method: :patch} do
-            = label_tag :status
-            = select_tag :status, options_for_select(['In progress','Unable to complete','Done'], selected: work.status)
-            = submit_tag "Update status", class: 'button inc'
+        %h4 Message
+        = work.message
+        %br
+        %h4 Location
+        = work.location
+        %br
+        %br
+        = form_tag workorder_path(work.id), {method: :patch} do
+          = label_tag 'Set status'
+          = select_tag :status, options_for_select(['In progress','Unable to complete','Done'], selected: work.status)
+          = submit_tag "Update status", class: 'button inc'

@@ -82,6 +82,19 @@
     color:#fff;
     line-height:30px;
     text-align:center;
+    position: relative;
+}
+
+.stat_urgent {
+    background-color: #FC8282;
+    color: #C33333;
+    width:20px;
+    height:20px;
+    border-radius:50px;
+    font-size:8px;
+    color:#fff;
+    line-height:30px;
+    text-align:center;
     position: absolute;
 }
 

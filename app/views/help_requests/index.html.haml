@@ -6,6 +6,8 @@
         .card
           .newh
             = help.title
+            - if help.urgent == true
+              .stat_urgent
         = help.message
         %br
         %br

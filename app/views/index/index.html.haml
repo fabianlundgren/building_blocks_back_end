@@ -14,13 +14,15 @@
       - @help_requests.each do |help|
         .card
           .card-divider
+            - if help.urgent == true
+              .stat_red
             = help.title
             %hr/
             %p.help
               = help.message
-          %br
           - if help.workorder_id == nil
-            = link_to 'Create work order' , new_workorder_path(help.id), class: 'w_link'
+            = link_to 'Create work order' , new_workorder_path(help.id), class: 'button tiny inc'
+            %br
     %th.news
       - @news.each do |news|
         .card
