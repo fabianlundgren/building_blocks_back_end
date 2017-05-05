@@ -221,6 +221,6 @@ p {
   text-align: left;
 }
 
-p.help, .work, .booking {
+p.help, .work {
   text-align: center;
 }
