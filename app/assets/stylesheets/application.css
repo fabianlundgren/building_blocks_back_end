@@ -37,6 +37,7 @@
     color:#fff;
     line-height:30px;
     text-align:center;
+    position: absolute;
 }
 
 .stat_yellow {
@@ -49,6 +50,7 @@
     color:#fff;
     line-height:30px;
     text-align:center;
+    position: absolute;
 }
 
 .stat_red {
@@ -61,6 +63,7 @@
     color:#fff;
     line-height:30px;
     text-align:center;
+    position: absolute;
 }
 
 .card {

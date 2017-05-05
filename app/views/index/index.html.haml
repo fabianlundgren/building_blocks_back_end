@@ -34,13 +34,14 @@
       - @workorder.each do |work|
         .card
           .card-divider
-            = work.title
-            %hr/
             - if work.status == 'Done'
               .stat_green
             -elsif work.status == 'In progress'
               .stat_yellow
             -elsif work.status == 'Unable to complete'
               .stat_red
-              %p
-                = work.message
+            = work.title
+            %hr/
+            %p
+              = work.message
+

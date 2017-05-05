@@ -25,7 +25,7 @@ Feature: Creat a new workorder
 
   Scenario: I create and send a work order
     Given I am on the show help request page
-    And I click link "Fabian"
+    And I click link "Create work order"
     Then I should see "Send work order"
     And I should see "Fabian" in field "workorder_title"
     And I should see "Pants are gone"
