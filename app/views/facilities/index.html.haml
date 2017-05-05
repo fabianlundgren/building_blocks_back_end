@@ -1,9 +1,10 @@
 .base
   .row
     - @facilities.each do | facility |
-      .large-3.medium-3.columns
-        = link_to facility.name, facility_path(facility.id)
-        %br
+      .large-4.medium-4.columns
+        .card
+          .newh
+            = link_to facility.name, facility_path(facility.id)
         = facility.description
         %br
         = link_to 'Manage bookings', facility_bookings_path(facility.id), class: 'button tiny inc'
