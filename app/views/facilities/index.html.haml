@@ -1,6 +1,10 @@
 .base
+  %h3 Facilities
+  .nisse
+    = link_to 'New Facility', new_facility_path, class: 'button inc'
+  %br
+  %br
   .row
-    %h3 Facilities
     - @facilities.each do | facility |
       .large-4.medium-4.columns
         .card
@@ -12,6 +16,3 @@
         = link_to "Manage timeslots", facility_path(facility.id), class: 'button tiny inc'
         = link_to 'Manage bookings', facility_bookings_path(facility.id), class: 'button tiny inc'
         = link_to "Delete", "/facilities/#{facility.id}", method: :delete, class: 'button tiny alert'
-  %br
-  .nisse
-    = link_to 'New Facility', new_facility_path, class: 'button inc'
