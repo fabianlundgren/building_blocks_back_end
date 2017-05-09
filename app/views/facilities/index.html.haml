@@ -6,7 +6,8 @@
         .card
           .newh
             = facility.name
-        = facility.description
+        %p.facility
+          = facility.description
         %br
         %br
         = link_to "Manage timeslots", facility_path(facility.id), class: 'button tiny inc'

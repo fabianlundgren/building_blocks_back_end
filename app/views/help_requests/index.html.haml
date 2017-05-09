@@ -8,7 +8,8 @@
             - if help.urgent == true
               .stat_urgent
             = help.title
-        = help.message
+        %p.help
+          = help.message
         %br
         %br
         = link_to "Create work order", new_workorder_path(help.id), class: 'button tiny inc'
