@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::HelpRequestsController, type: :request do
-  let!(:user) { create(:user, email: "mail@mail.com",
-    password: "12345678")}
-    login_as(user, scope: :user)
 
   describe 'POST /v1/help_requests' do
     it 'should collect call for help message from mobile client' do
-
+      @user = create(:user, email: "mail@mail.com", password: "12345678")
+      login_as @user
+      
       params = {
         title: 'Burning',
         message: 'Pants is burning',

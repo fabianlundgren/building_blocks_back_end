@@ -14,8 +14,11 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include FactoryGirl::Syntax::Methods
   config.include ResponseJSON, type: :request
-  config.include Devise::TestHelpers, type: :controller
-  config.include Warden::Test::Helpers, type: :request
+   config.include Devise::TestHelpers, type: :controller
+   config.include Warden::Test::Helpers, :type => :request
+ config.after :each do
+   Warden.test_reset!
+ end
 end
 
 Shoulda::Matchers.configure do |config|

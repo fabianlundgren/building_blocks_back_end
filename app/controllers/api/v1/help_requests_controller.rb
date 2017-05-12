@@ -2,8 +2,8 @@ class Api::V1::HelpRequestsController < ApiController
   def create
     @help_request = HelpRequest.new help_request_params
     binding.pry
-  
-    @help_request.update(user_id: current_user.id)
+
+    @help_request.update(user_id: user.id)
     if @help_request.save
       render json: {message: 'Thank you for your message'}
     else
@@ -13,6 +13,6 @@ class Api::V1::HelpRequestsController < ApiController
 
 private
   def help_request_params
-    params.permit(:title, :message, :urgent)
+    params.permit(:title, :message, :urgent, :user)
   end
 end
