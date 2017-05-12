@@ -6,4 +6,6 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   validates :role, inclusion: {in: VALID_ROLES, message: '%{value} is not a valid user role'}
+
+  has_many :help_requests
 end
