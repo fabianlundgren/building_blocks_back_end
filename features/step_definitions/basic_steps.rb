@@ -28,7 +28,7 @@ end
 
 Given(/^the following users exist$/) do |table|
   table.hashes.each do |hash|
-   create(:user, hash)
+   @user = create(:user, hash)
   end
 end
 
