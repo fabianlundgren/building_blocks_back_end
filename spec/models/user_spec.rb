@@ -23,6 +23,10 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_many :help_requests }
+  end
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(create(:user)).to be_valid
