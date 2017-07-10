@@ -12,7 +12,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to belong_to :building }
+    it { is_expected.to have_many :building }
   end
 
   describe 'Custom Validations' do

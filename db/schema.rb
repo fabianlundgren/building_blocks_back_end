@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170710084231) do
     t.string   "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_buildings_on_user_id", using: :btree
   end
 
   create_table "facilities", force: :cascade do |t|
@@ -124,6 +126,7 @@ ActiveRecord::Schema.define(version: 20170710084231) do
 
   add_foreign_key "bookings", "buildings"
   add_foreign_key "bookings", "facilities"
+  add_foreign_key "buildings", "users"
   add_foreign_key "facilities", "buildings"
   add_foreign_key "help_requests", "buildings"
   add_foreign_key "help_requests", "workorders"
