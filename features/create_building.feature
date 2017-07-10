@@ -1,7 +1,7 @@
-Feature: Admin sign up
+Feature: Admin sign up and create a building
   As an admin
   In order to access admin account
-  I would like to be able to sign up
+  I would like to be able to sign up and create a building
 
  Scenario: I create an admin account
    Given I am on the root page
@@ -11,8 +11,10 @@ Feature: Admin sign up
    And I fill in "Password" with "12345678"
    And I fill in "Password confirmation" with "12345678"
    And I click "Sign up"
-   And I should see "You have signed up successfully."
-   Then "morgan@morgan.com" should be marked as "admin"
+   Then I should see "Create a new building."
+   And I fill in "name" with "Bighouse"
+   And I click "Create"
+   Then I should see "New house created"
 
  Scenario: I create an account without e-mail
    Given I am on the registration page

@@ -1,4 +1,4 @@
-Feature: Creat a new facility
+Feature: Create a new facility
   As an administrator
   In order to show the buldings facility's
   I would like to be able to create a new facility's.
