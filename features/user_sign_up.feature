@@ -8,6 +8,7 @@ Feature: Admin sign up
    Then I should see "Sign up"
    And I fill in "Email" with "morgan@morgan.com"
    And I select "admin" from "Role"
+   And I fill in "Bulding name" with "BigHouse"
    And I fill in "Password" with "12345678"
    And I fill in "Password confirmation" with "12345678"
    And I click "Sign up"
