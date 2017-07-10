@@ -4,6 +4,6 @@ FactoryGirl.define do
     description "MyText"
     rules "MyText"
     status false
-    
+    association :building
   end
 end
