@@ -11,10 +11,10 @@ Feature: Admin sign up and create a building
    And I fill in "Password" with "12345678"
    And I fill in "Password confirmation" with "12345678"
    And I click "Sign up"
-   Then I should see "Create a new building."
-   And I fill in "name" with "Bighouse"
+   Then I should see "Create a new building"
+   And I fill in "Name" with "Bighouse"
    And I click "Create"
-   Then I should see "New house created"
+   Then I should see "New house created!"
 
  Scenario: I create an account without e-mail
    Given I am on the registration page
