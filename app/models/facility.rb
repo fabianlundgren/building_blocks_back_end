@@ -2,6 +2,7 @@ class Facility < ApplicationRecord
   validates_presence_of :name, :description
   has_many :bookings, :dependent => :destroy
   has_many :timeslots, :dependent => :destroy
+  belongs_to :building
 
   def self.start_time
    [ 1 , 2 , 3 , 4 , 5 , 6 ,
