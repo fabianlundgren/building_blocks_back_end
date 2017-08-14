@@ -3,7 +3,7 @@ class BuildingsController < ApplicationController
     @building = Building.new
   end
 
-  def create
+ def create
     @building = Building.new building_params
     @building.update(user_id: current_user.id)
     if @building.save
@@ -14,9 +14,9 @@ class BuildingsController < ApplicationController
     end
   end
 
-  private
+ private
 
-  def building_params
+ def building_params
     params.require(:building).permit(:name)
   end
 end
