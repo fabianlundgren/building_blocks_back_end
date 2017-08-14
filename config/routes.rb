@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :news, only: [:new, :create, :index, :edit, :update, :destroy]
 
-  resources :buildings, only: [:new, :create]
+  resources :buildings, only: [:new, :create, :show]
   resources :workorders, only: [:new, :create, :index, :update]
   resources :help_requests, only: [:index, :destroy]
   resources :facilities, only: [:new, :create, :index, :show, :destroy] do

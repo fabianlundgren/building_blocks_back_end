@@ -4,13 +4,13 @@ class IndexController < ApplicationController
     @news = News.last(5)
     @facilities = Facility.all
     @workorder = Workorder.last(5)
-    @Building = Building.find_by(user_id: current_user)
+    @building = Building.where(user_id: current_user)
     if current_user.role == 'admin'
-      if session[:current_building_id] = nil
-        if @bulding == nil
+      if session[:current_building_id] == nil
+        if @building == nil
           redirect_to '/buildings/new'
         elsif @building.count == 1
-          session[:current_building_id] = @building.id
+          session[:current_building_id] = @building.ids
           redirect_to 'root_path'
         elsif @building.count > 1
           redirect_to '/buildings/show'

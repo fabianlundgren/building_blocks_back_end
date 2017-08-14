@@ -14,6 +14,10 @@ Then(/^I click "([^"]*)"$/) do |button|
   click_button button
 end
 
+Then(/^I click link"([^"]*)"$/) do |button|
+  click_link link
+end
+
 Then(/^show me the page$/) do
  save_and_open_page
 end
@@ -29,6 +33,13 @@ end
 Given(/^the following users exist$/) do |table|
   table.hashes.each do |hash|
    create(:user, hash)
+  end
+end
+
+Given(/^the following buildings exist$/) do |table|
+  table.hashes.each do |hash|
+    user = User.find_by(email: "nubbe@nubbe.com")
+   create(:building, name: hash[:name], street: hash[:street], user_id: user.id)
   end
 end
 

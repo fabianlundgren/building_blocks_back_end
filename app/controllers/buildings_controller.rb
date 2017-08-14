@@ -3,6 +3,10 @@ class BuildingsController < ApplicationController
     @building = Building.new
   end
 
+  def show
+    @building = Building.where(user_id: current_user)
+  end
+
  def create
     @building = Building.new building_params
     @building.update(user_id: current_user.id)
