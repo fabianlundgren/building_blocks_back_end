@@ -5,6 +5,12 @@ class BuildingsController < ApplicationController
 
   def show
     @building = Building.where(user_id: current_user)
+    if params[:id2]
+      binding.pry
+      @house = Building.find_by(id: params[:id2])
+      session[:current_building_id] = @house.id
+      redirect_to root_path
+    end
   end
 
  def create

@@ -10,7 +10,7 @@ Feature: Show buildings
    Given the following buildings exist
     | name        | street      |
     | bighouse    | bigstreet   |
-    | Smallhouse  | smallstreet |
+    | smallhouse  | smallstreet |
 
   Scenario: I log in to choose a building
     Given I am on the root page
@@ -19,8 +19,8 @@ Feature: Show buildings
     And I fill in "Email" with "nubbe@nubbe.com"
     And I fill in "Password" with "12345678"
     And I click "Log in"
-    Then show me the page
     Then I should see "bighouse"
     And I should see "smallhouse"
-    Then I click "smallhouse"
+    Then I click link "smallhouse"
+    Then show me the page
     And I should see "smallhouse"
