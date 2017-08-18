@@ -39,7 +39,6 @@ end
 
 Given(/^the following buildings exist$/) do |table|
   user = User.find_by(email: "nubbe@nubbe.com")
-  binding.pry
   table.hashes.each do |hash|
    create(:building, name: hash[:name], street: hash[:street], user_id: user.id)
   end
