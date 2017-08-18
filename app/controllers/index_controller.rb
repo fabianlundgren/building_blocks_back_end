@@ -7,7 +7,7 @@ class IndexController < ApplicationController
     @buildings = Building.where(user_id: current_user)
     if current_user.role == 'admin'
       if session[:current_building_id] == nil
-        if @buildings == nil
+        if @buildings.count < 1
           redirect_to '/buildings/new'
         elsif @buildings.count == 1
           @building = Building.find_by(id: @buildings.ids)

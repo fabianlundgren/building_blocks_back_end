@@ -1,5 +1,6 @@
 Given(/^I am on the create news facility page$/) do
-  visit new_facility_path
+  building = Building.find_by(name: 'bighouse')
+  visit new_building_facility_path(building)
 end
 
 Then(/^I check Available check box$/) do
@@ -7,5 +8,6 @@ Then(/^I check Available check box$/) do
 end
 
 Given(/^I am on the facility index page$/) do
-  visit facilities_path
+  building = Building.find_by(name: 'bighouse')
+  visit building_facility_path(building)
 end

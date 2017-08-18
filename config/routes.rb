@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :news, only: [:new, :create, :index, :edit, :update, :destroy]
-
-  resources :buildings, only: [:new, :create, :show]
+  resources :buildings, only: [:new, :create, :show] do
+    resources :news, only: [:new, :create, :index, :edit, :update, :destroy]
+  end
   resources :workorders, only: [:new, :create, :index, :update]
   resources :help_requests, only: [:index, :destroy]
   resources :facilities, only: [:new, :create, :index, :show, :destroy] do

@@ -10,10 +10,12 @@ class FacilitiesController < ApplicationController
 
   def new
     @facility = Facility.new
+    @building = Building.find(session[:current_building_id])
   end
 
   def create
     @facility = Facility.new facility_params
+    @facility.update(building_id: session[:current_building_id])
     if @facility.save
       flash[:notice] = "New facility created!"
       redirect_back(fallback_location: new_facility_path)

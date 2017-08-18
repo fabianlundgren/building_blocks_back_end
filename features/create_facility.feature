@@ -3,6 +3,14 @@ Feature: Create a new facility
   In order to show the buldings facility's
   I would like to be able to create a new facility's.
 
+  Background:
+   Given the following users exist
+    | email           | password  | password_confirmation | role  |
+    | nubbe@nubbe.com | 12345678  | 12345678              | admin |
+   Given the following buildings exist
+    | name        | street      |
+    | bighouse    | bigstreet   |
+
   Scenario: I create a new new facility
     Given I am on the create news facility page
     Then I should see "Create a new facility"

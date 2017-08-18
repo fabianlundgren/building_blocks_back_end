@@ -1,6 +1,6 @@
 .base
   %h3 Create a news message
-  = form_for (@news) do |f|
+  = form_for ([@building, @news]) do |f|
     .field
       = f.label :title
       %br/

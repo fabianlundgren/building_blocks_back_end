@@ -19,7 +19,7 @@ class BuildingsController < ApplicationController
       flash[:notice] = "New house created!"
       @building = Building.find_by(user_id: current_user)
       session[:current_building_id] = @building.id
-      redirect_back(fallback_location: root_path)
+      redirect_to root_path
     end
   end
 

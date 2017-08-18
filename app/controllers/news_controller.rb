@@ -5,6 +5,8 @@ class NewsController < ApplicationController
   end
 
   def new
+    binding.pry
+    @building = Building.find(session[:current_building_id])
     @news = News.new
   end
 

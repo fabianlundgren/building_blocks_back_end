@@ -18,27 +18,28 @@
     .head
       = image_tag('logo4.png',  size: "650x100")
       %br
-      - if current_user
-        - if current_user.role == 'janitor'
-          Janitor
-          = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
-        - else
-          %ul.menu.menu-desktop
-            %li
-              = link_to 'Home', root_path
-            %li
-              = link_to 'Help requests', help_requests_path
-            %li
-              = link_to 'Facilities', facilities_path
-            %li
-              = link_to 'News', news_index_path
-            %li
-              = link_to 'New Work order', new_workorder_path
-            %li
-              = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
-            - if current_user == nil
+      - if session[:current_building_id]
+        - if current_user
+          - if current_user.role == 'janitor'
+            Janitor
+            = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
+          - else
+            %ul.menu.menu-desktop
               %li
-                = link_to 'Sign up', new_user_registration_path
+                = link_to 'Home', root_path
+              %li
+                = link_to 'Help requests', help_requests_path
+              %li
+                = link_to 'Facilities', facilities_path
+              %li
+                = link_to 'News', new_building_news_path(session[:current_building_id])
+              %li
+                = link_to 'New Work order', new_workorder_path
+              %li
+                = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
+              - if current_user == nil
+                %li
+                  = link_to 'Sign up', new_user_registration_path
     .body
       .alert= alert
       - if flash[:notice]

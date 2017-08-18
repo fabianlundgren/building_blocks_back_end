@@ -1,5 +1,6 @@
 Given(/^I am on the create news post page$/) do
-  visit new_news_path
+  building = Building.find_by(name: 'bighouse')
+  visit new_building_news_path(building)
 end
 
 Then(/^I should see "([^"]*)"$/) do |content|
@@ -37,8 +38,9 @@ Given(/^the following users exist$/) do |table|
 end
 
 Given(/^the following buildings exist$/) do |table|
+  user = User.find_by(email: "nubbe@nubbe.com")
+  binding.pry
   table.hashes.each do |hash|
-    user = User.find_by(email: "nubbe@nubbe.com")
    create(:building, name: hash[:name], street: hash[:street], user_id: user.id)
   end
 end
