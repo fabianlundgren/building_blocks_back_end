@@ -15,10 +15,12 @@ class IndexController < ApplicationController
         elsif @building.count > 1
           redirect_to '/buildings/show'
         end
+        else
+          @buildingname = Building.find(session[:current_building_id])
+        end
+      end
+      if current_user.role == 'janitor'
+        redirect_to '/workorders'
       end
     end
-    if current_user.role == 'janitor'
-      redirect_to '/workorders'
-    end
-  end
 end

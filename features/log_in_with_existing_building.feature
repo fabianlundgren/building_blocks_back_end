@@ -22,5 +22,4 @@ Feature: Show buildings
     Then I should see "bighouse"
     And I should see "smallhouse"
     Then I click link "smallhouse"
-    Then show me the page
     And I should see "smallhouse"
