@@ -12,6 +12,12 @@ Feature: Create a new facility
     | bighouse    | bigstreet   |
 
   Scenario: I create a new new facility
+    Given I am on the root page
+    Then I should see "Sign up"
+    And I click link "Log in"
+    And I fill in "Email" with "nubbe@nubbe.com"
+    And I fill in "Password" with "12345678"
+    And I click "Log in"
     Given I am on the create news facility page
     Then I should see "Create a new facility"
     And I fill in "Name" with "yard"

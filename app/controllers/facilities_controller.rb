@@ -18,7 +18,7 @@ class FacilitiesController < ApplicationController
     @facility.update(building_id: session[:current_building_id])
     if @facility.save
       flash[:notice] = "New facility created!"
-      redirect_back(fallback_location: new_facility_path)
+      redirect_back(fallback_location: new_building_facility_path(session[:current_building_id]))
     end
   end
 
