@@ -2,7 +2,7 @@ class Api::V1::HelpRequestsController < ApiController
   def create
     @help_request = HelpRequest.new help_request_params
     if current_user
-      @help_request.update(user_id: current_user)
+      @help_request.update(user_id: current_user.id)
     elsif User.first
       user = User.first
       @help_request.update(user_id: user.id)
