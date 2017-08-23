@@ -26,7 +26,7 @@ class FacilitiesController < ApplicationController
     @facility = Facility.find(params[:id])
     if @facility.destroy
       flash[:notice] = "Facility Deleted!"
-      redirect_back(fallback_location: facilities_path)
+      redirect_back(fallback_location: building_facilities_path(session[:current_building_id]))
     end
   end
 

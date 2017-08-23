@@ -5,7 +5,7 @@
   %br
   .row
     = month_calendar events: @bookings do |date, bookings|
-      = link_to new_facility_booking_path(@facility, date: date) do
+      = link_to new_building_facility_booking_path(@building, @facility, date: date) do
         %div
           = date.strftime('%d')
           - bookings.each do |booking|
@@ -28,5 +28,5 @@
           %tr
             %td= booking.name
             %td= booking.start_time
-            %td= link_to 'Show', facility_booking_path(@facility, booking), class: 'button tiny inc'
-            %td= link_to 'Destroy', facility_booking_path(@facility, booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button tiny inc'
+            %td= link_to 'Show', building_facility_booking_path(@building, @facility, booking), class: 'button tiny inc'
+            %td= link_to 'Destroy', building_facility_booking_path(@building, @facility, booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button tiny inc'
