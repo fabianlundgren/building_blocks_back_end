@@ -20,6 +20,5 @@ Feature: Jaintor sign in
       And I fill in "Email" with "nub@nub.com"
       And I fill in "Password" with "12345678"
       And I click "Log in"
-      Then show me the page
       Then I should not see "Home"
       And I should see "Work orders"

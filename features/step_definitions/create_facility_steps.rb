@@ -9,5 +9,5 @@ end
 
 Given(/^I am on the facility index page$/) do
   building = Building.find_by(name: 'bighouse')
-  visit building_facility_path(building)
+  visit building_facilities_path(building.id)
 end

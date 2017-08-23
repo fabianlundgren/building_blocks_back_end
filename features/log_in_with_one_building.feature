@@ -17,6 +17,5 @@ Feature: Show buildings
     And I click link "Log in"
     And I fill in "Email" with "nubbe@nubbe.com"
     And I fill in "Password" with "12345678"
-    Then show me the page
     And I click "Log in"
     Then I should see "bighouse"

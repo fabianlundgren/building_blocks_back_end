@@ -2,10 +2,12 @@ class FacilitiesController < ApplicationController
 
   def index
     @facilities = Facility.all
+    @building = Building.find(session[:current_building_id])
   end
 
   def show
     @facility = Facility.find(params[:id])
+    @building = Building.find(session[:current_building_id])
   end
 
   def new
