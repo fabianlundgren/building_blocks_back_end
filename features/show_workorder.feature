@@ -23,7 +23,6 @@ Feature: Show workorder
     And I click "Log in"
     Given I am on the work orders index page
     Then I should see "Work order"
-    Then show me the page
     And I should see "Fabian"
     And I should see "Pants are gone"
     And I should see "bighouse"

@@ -21,7 +21,9 @@ class IndexController < ApplicationController
         end
       end
       if current_user.role == 'janitor'
-        redirect_to '/workorders'
+        user = User.find_by(id: current_user.id)
+        session[:current_building_id] = user.building_id
+        redirect_to "/buildings/#{user.building_id}/workorders"
       end
     end
 end

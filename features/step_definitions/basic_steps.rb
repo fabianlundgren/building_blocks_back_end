@@ -44,6 +44,13 @@ Given(/^the following buildings exist$/) do |table|
   end
 end
 
+Given(/^the following janitor exist$/) do |table|
+  building = Building.find_by(name: "bighouse")
+  table.hashes.each do |hash|
+   create(:user, email: hash[:email], password: hash[:password],password_confirmation: hash[:password_confirmation], role: hash[:role], building_id: building.id)
+  end
+end
+
 Given(/^I am logged in as "([^"]*)"$/) do |email|
   user = User.find_by(email: email)
   login_as(user, scope: :user)

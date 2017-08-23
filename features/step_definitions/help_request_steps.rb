@@ -6,5 +6,6 @@ Given(/^the following help request messages exist$/) do |table|
 end
 
 Given(/^I am on the show help request page$/) do
-  visit help_requests_path
+  building = Building.find_by(name: "bighouse")
+  visit building_help_requests_path(building)
 end

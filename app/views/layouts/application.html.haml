@@ -28,7 +28,7 @@
               %li
                 = link_to 'Home', root_path
               %li
-                = link_to 'Help requests', help_requests_path
+                = link_to 'Help requests', building_help_requests_path(session[:current_building_id])
               %li
                 = link_to 'Facilities', facilities_path
               %li
