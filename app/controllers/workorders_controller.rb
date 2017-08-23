@@ -13,6 +13,7 @@ class WorkordersController < ApplicationController
   end
 
   def new
+    @building = Building.find(session[:current_building_id])
     @workorder = Workorder.new
     if params[:format]
       @help_request = HelpRequest.find(params[:format])
@@ -21,13 +22,14 @@ class WorkordersController < ApplicationController
 
   def create
     @workorder = Workorder.new workorder_params
+    @workorder.update(building_id: session[:current_building_id])
     if params[:id]
       @workorder.update(help_request_id: params[:help_request_id])
       HelpRequest.find(params[:help_request_id]).update(workorder_id: @workorder.id)
     end
     if @workorder.save
       flash[:notice] = "New work order sent !!"
-      redirect_back(fallback_location: new_workorder_path)
+      redirect_back(fallback_location: new_building_workorder_path(session[:current_building_id]))
     end
   end
 

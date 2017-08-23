@@ -7,7 +7,6 @@ Feature: Post news
    Given the following users exist
     | email           | password  | password_confirmation | role  |
     | nubbe@nubbe.com | 12345678  | 12345678              | admin |
-
    And the following buildings exist
     | name        | street      |
     | bighouse    | bigstreet   |

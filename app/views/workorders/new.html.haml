@@ -1,7 +1,7 @@
 .base
   %h3 Send work order
   - if @help_request == nil
-    = form_for(@workorder) do |f|
+    = form_for([@building, @workorder]) do |f|
       .field
         = f.label :title
         %br/
