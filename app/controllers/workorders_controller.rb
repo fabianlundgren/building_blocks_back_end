@@ -1,6 +1,7 @@
 class WorkordersController < ApplicationController
   def index
-    @workorders = Workorder.all
+    @workorders = Workorder.where(building_id: session[:current_building_id])
+    @building = Building.find(session[:current_building_id])
   end
 
   def update

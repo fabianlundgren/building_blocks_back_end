@@ -1,6 +1,7 @@
 Given(/^the following help request messages exist$/) do |table|
+  building = Building.find_by(name: "bighouse")
   table.hashes.each do |hash|
-    create(:help_request, title: hash[:title], message: hash[:message], urgent: hash[:urgent])
+    create(:help_request, title: hash[:title], message: hash[:message], urgent: hash[:urgent], building_id: building.id)
   end
 end
 

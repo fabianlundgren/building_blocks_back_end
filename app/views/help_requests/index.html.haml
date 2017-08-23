@@ -11,5 +11,5 @@
         = help.message
         %br
         %br
-        = link_to "Create work order", new_workorder_path(help.id), class: 'button tiny inc'
+        = link_to "Create work order", new_building_workorder_path(session[:current_building_id], help.id), class: 'button tiny inc'
         = link_to "Delete", "/help_requests/#{help.id})", method: :delete, class: 'button tiny alert'

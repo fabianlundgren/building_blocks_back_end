@@ -5,8 +5,8 @@ Feature: Creat a new workorder
 
   Background:
   Given the following users exist
-   | email           | password  | password_confirmation | role  |
-   | nubbe@nubbe.com | 12345678  | 12345678              | admin |
+    | email           | password  | password_confirmation | role  |
+    | nubbe@nubbe.com | 12345678  | 12345678              | admin |
   And the following buildings exist
     | name        | street      |
     | bighouse    | bigstreet   |
@@ -32,6 +32,12 @@ Feature: Creat a new workorder
     Then I should see "New work order sent !!"
 
   Scenario: I create and send a work order
+    Given I am on the root page
+    Then I should see "Sign up"
+    And I click link "Log in"
+    And I fill in "Email" with "nubbe@nubbe.com"
+    And I fill in "Password" with "12345678"
+    And I click "Log in"
     Given I am on the show help request page
     And I click link "Create work order"
     Then I should see "Send work order"
