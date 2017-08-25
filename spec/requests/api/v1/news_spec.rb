@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::NewsController, type: :request do
   let!(:news) { create(:news, title: 'Utegångsförbud', description: 'Juan') }
-
+   
   describe 'GET /v1/news' do
     it 'should return all the news titles and description' do
       get '/api/v1/news'
