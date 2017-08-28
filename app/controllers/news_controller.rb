@@ -11,7 +11,7 @@ class NewsController < ApplicationController
 
   def create
     @news = News.new news_params
-    @news.update(building_id: session[:current_building_id])
+    @news.building_id = session[:current_building_id]
     if @news.save
       flash[:notice] = "News post created!"
       redirect_back(fallback_location: building_news_index_path(session[:current_building_id]))

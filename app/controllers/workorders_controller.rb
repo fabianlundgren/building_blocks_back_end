@@ -23,7 +23,7 @@ class WorkordersController < ApplicationController
 
   def create
     @workorder = Workorder.new workorder_params
-    @workorder.update(building_id: session[:current_building_id])
+    @workorder.building_id = session[:current_building_id]
     if params[:id]
       @workorder.update(help_request_id: params[:help_request_id])
       HelpRequest.find(params[:help_request_id]).update(workorder_id: @workorder.id)

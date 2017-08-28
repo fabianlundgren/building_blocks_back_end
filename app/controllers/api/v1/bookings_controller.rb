@@ -5,7 +5,7 @@ class Api::V1::BookingsController < ApiController
 
   def create
     @booking = Booking.new booking_params
-    @booking.update(facility_id: params[:facility_id])
+    @booking.facility_id = params[:facility_id]
     if @booking.name == nil
       render json: {message: @booking.errors.full_messages}, status: 400
     elsif @booking.save

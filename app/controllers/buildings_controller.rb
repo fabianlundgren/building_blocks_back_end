@@ -14,7 +14,7 @@ class BuildingsController < ApplicationController
 
  def create
     @building = Building.new building_params
-    @building.update(user_id: current_user.id)
+    @building.user_id = current_user.id
     if @building.save
       flash[:notice] = "New house created!"
       @building = Building.find_by(user_id: current_user)
