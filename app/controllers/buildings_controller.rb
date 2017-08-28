@@ -3,7 +3,7 @@ class BuildingsController < ApplicationController
     @building = Building.new
   end
 
-  def show
+  def index
     @building = Building.where(user_id: current_user)
     if params[:id2]
       @house = Building.find_by(id: params[:id2])

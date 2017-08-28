@@ -5,25 +5,25 @@ class IndexController < ApplicationController
     @facilities = Facility.all
     @workorder = Workorder.last(5)
     @buildings = Building.where(user_id: current_user)
-    if current_user.role == 'admin'
+    if current_user.admin?
       if session[:current_building_id] == nil
         if @buildings.count < 1
-          redirect_to '/buildings/new'
+          redirect_to new_building_path
         elsif @buildings.count == 1
           @building = Building.find_by(id: @buildings.ids)
           session[:current_building_id] = @building.id
           redirect_back(fallback_location: root_path)
         elsif @buildings.count > 1
-          redirect_to '/buildings/show'
+          redirect_to buildings_path
         end
         else
           @buildingname = Building.find(session[:current_building_id])
         end
       end
-      if current_user.role == 'janitor'
+      if current_user.janitor?
         user = User.find_by(id: current_user.id)
         session[:current_building_id] = user.building_id
-        redirect_to "/buildings/#{user.building_id}/workorders"
+        redirect_to building_workorders_path(user.building_id)
       end
     end
 end
