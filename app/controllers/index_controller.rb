@@ -17,7 +17,7 @@ class IndexController < ApplicationController
           redirect_to buildings_path
         end
         else
-          @buildingname = Building.find(session[:current_building_id])
+          @building_name = Building.find(session[:current_building_id])
         end
       end
       if current_user.janitor?
