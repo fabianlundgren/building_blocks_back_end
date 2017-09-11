@@ -8,6 +8,7 @@ RSpec.describe Booking, type: :model do
 
   describe 'Associations' do
     it { is_expected.to belong_to :facility }
+    it { is_expected.to belong_to :building }
   end
 
   describe 'Factory' do

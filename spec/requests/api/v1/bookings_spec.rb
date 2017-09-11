@@ -1,16 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe "Bookings", type: :request do
+  let(:building) { create(:building, name: 'bighouse', street: 'bigstreet')}
   let(:facility) { create(:facility,
     name: 'Sauna',
     description: 'Hot hot Sauna',
     rules: 'No Underwear',
-    status: true)}
-
+    status: true,
+    building_id: building.id)}
   let!(:booking) { create(:booking,
      name: 'Casper',
      start_time: '2017-04-01 12:09',
-     facility_id: facility.id)}
+     facility_id: facility.id,
+     building_id: building.id)}
 
   describe "GET /api/v1/facilities/:facility_id/bookings" do
      it "it should return all bookings, name and date" do
@@ -32,7 +34,8 @@ RSpec.describe "Bookings", type: :request do
 
        params = {
          name: 'Nisse',
-         start_time: '2017-04-01'
+         start_time: '2017-04-01',
+         building_id: building.id
                  }
 
        post "/api/v1/facilities/#{facility.id}/bookings", params

@@ -13,6 +13,10 @@
         = facility.description
         %br
         %br
-        = link_to "Manage timeslots", facility_path(facility.id), class: 'button tiny inc'
-        = link_to 'Manage bookings', facility_bookings_path(facility.id), class: 'button tiny inc'
+        = link_to "Manage timeslots", building_facility_path(@building, facility.id), class: 'button tiny inc'
+        = link_to 'Manage bookings', building_facility_bookings_path(@building,facility.id), class: 'button tiny inc'
         = link_to "Delete", "/facilities/#{facility.id}", method: :delete, class: 'button tiny alert'
+  %br
+  .nisse
+   = link_to 'New Facility', new_building_facility_path(@building), class: 'button inc'
+

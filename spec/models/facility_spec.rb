@@ -16,6 +16,7 @@ RSpec.describe Facility, type: :model do
   describe 'Associations' do
     it { is_expected.to have_many :bookings }
     it { is_expected.to have_many :timeslots }
+    it { is_expected.to belong_to :building }
   end
 
   describe 'Factory' do

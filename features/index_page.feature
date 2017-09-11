@@ -7,6 +7,9 @@ Feature: add layout and information to index
     Given the following users exist
       | email           | password  | password_confirmation |
       | nubbe@nubbe.com | 12345678  | 12345678              |
+    Given the following buildings exist
+      | name        | street      |
+      | bighouse    | bigstreet   |
     Given the following help request messages exist
       | title   | message         | urgent |
       | Fabian  | With peeing dog | true   |
