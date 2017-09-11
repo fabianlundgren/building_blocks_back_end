@@ -1,6 +1,6 @@
 .base
   %h3 Create a new facility
-  = form_for (@facility) do |f|
+  = form_for ([@building, @facility]) do |f|
     .field
       = f.label :name
       %br/

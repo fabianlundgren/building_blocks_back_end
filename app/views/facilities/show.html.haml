@@ -5,14 +5,14 @@
     %br
     %br
     - if @facility.timeslots[0].nil?
-      = form_tag facility_timeslots_path(@facility), {method: :post} do
+      = form_tag building_facility_timeslots_path(@building, @facility), {method: :post} do
         = label_tag 'Start time'
         = select_tag 'start_time', options_for_select(Facility.start_time)
         = label_tag 'Number of time slot'
         = select_tag 'time_slot', options_for_select(Facility.time_slot)
         = label_tag 'Number of hours'
         = select_tag 'hours', options_for_select(Facility.hours)
-        = submit_tag "Set schedule", class: 'round button', class: 'button inc'
+        = submit_tag "Set schedule", class: 'button inc'
     - else
       current schedule
       %br
@@ -22,4 +22,4 @@
         -
         = timeslot.end_time
         %br
-      = link_to "Update timeslots", facility_timeslot_path(params[:id], 3), method: :delete, class: 'button inc'
+      = link_to "Update timeslots", building_facility_timeslot_path(@building, params[:id], 3), method: :delete, class: 'button inc'

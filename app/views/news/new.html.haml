@@ -1,6 +1,6 @@
 .base
   %h3 Create a news message
-  = form_for (@news) do |f|
+  = form_for ([@building, @news]) do |f|
     .field
       = f.label :title
       %br/
@@ -10,7 +10,7 @@
       %br/
       = f.text_area :description
     .actions
-      = f.submit "Submit", class: 'button inc', class: 'button inc'
+      = f.submit "Submit", class: 'button inc'
 
   - if flash[:notice]
     .notice= flash[:notice]

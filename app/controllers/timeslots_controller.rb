@@ -2,7 +2,7 @@ class TimeslotsController < ApplicationController
   def create
     create_schedule(params)
     flash[:notice] = "schedule created"
-    redirect_back(fallback_location: facilities_path)
+    redirect_back(fallback_location: building_facilities_path(session[:current_building_id]))
   end
 
   def destroy
@@ -10,7 +10,7 @@ class TimeslotsController < ApplicationController
     @timeslots.each do |timeslot|
       timeslot.destroy
     end
-    redirect_back(fallback_location: facilities_path)
+    redirect_back(fallback_location: building_facilities_path(session[:current_building_id]))
   end
 
 
@@ -30,7 +30,8 @@ class TimeslotsController < ApplicationController
       timeslots << {
         start_time: "#{normalize_hour(start_time)}:00:00",
         end_time: "#{normalize_hour(end_time)}:00:00",
-        facility_id: params[:facility_id]
+        facility_id: params[:facility_id],
+        building_id: session[:current_building_id]
       }
 
       start_time = end_time
