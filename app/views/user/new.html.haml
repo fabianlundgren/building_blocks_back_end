@@ -1,10 +1,7 @@
 .base
   %h4 Sign up
-  or
-  = render "devise/shared/links"
   %br/
-  = form_for(resource, url: registration_path(resource_name)) do |f|
-    = devise_error_messages!
+  = form_for(:user, :url => {:controller => 'user', :action => 'create'}) do |f|
     .field
       = f.label :email
       %br/
@@ -12,7 +9,7 @@
     .field
       = f.label :role
       %br/
-      = f.select :role, ['admin']
+      = f.select :role, ['tenant','jani']
     .field
       = f.label :password
       - if @minimum_password_length

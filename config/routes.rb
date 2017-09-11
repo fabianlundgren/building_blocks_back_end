@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     authenticated :user do
       root to: 'index#index'
     end
+    resources :user, :controller => "user"
     unauthenticated :user do
       root to: 'devise/registrations#new', as: :unauthenticated_root
     end

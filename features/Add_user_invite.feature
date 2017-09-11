@@ -20,10 +20,10 @@ Feature: Invite a user
     And I fill in "Password" with "12345678"
     And I click "Log in"
     Then I click link "invite new user"
-    Then show me the page
     And I fill in "Email" with "morgan@morgan.com"
-    And I select "admin" from "Role"
+    And I select "tenant" from "Role"
     And I fill in "Password" with "12345678"
     And I fill in "Password confirmation" with "12345678"
     And I click "Sign up"
-    And I should see "You have signed up successfully."
+    Then show me the page
+    And I should see "New user created!"

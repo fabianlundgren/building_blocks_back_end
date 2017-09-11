@@ -38,7 +38,7 @@
               %li
                 = link_to 'New Work order', new_building_workorder_path(session[:current_building_id])
               %li
-                = link_to 'invite new user', new_building_help_request_path(session[:current_building_id])
+                = link_to 'invite new user', new_user_path
               %li
                 = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
               - if current_user == nil
