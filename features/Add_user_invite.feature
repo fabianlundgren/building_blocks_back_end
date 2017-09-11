@@ -10,7 +10,7 @@ Feature: Invite a user
   Given the following buildings exist
    | name        | street      |
    | bighouse    | bigstreet   |
-   
+
 
   Scenario: I create and send an invite.
     Given I am on the root page
@@ -20,10 +20,10 @@ Feature: Invite a user
     And I fill in "Password" with "12345678"
     And I click "Log in"
     Then I click link "invite new user"
+    Then show me the page
     And I fill in "Email" with "morgan@morgan.com"
     And I select "admin" from "Role"
     And I fill in "Password" with "12345678"
     And I fill in "Password confirmation" with "12345678"
     And I click "Sign up"
     And I should see "You have signed up successfully."
-    
