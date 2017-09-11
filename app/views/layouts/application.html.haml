@@ -32,7 +32,7 @@
               %li
                 = link_to 'Facilities', building_facilities_path(session[:current_building_id])
               %li
-                = link_to 'News', new_building_news_path(session[:current_building_id])
+                = link_to 'News', building_news_index_path(session[:current_building_id])
               %li
                 = link_to 'New Work order', new_building_workorder_path(session[:current_building_id])
               %li
