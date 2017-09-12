@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/', controller: :index, action: :select_building, as: :select_building
+
   resources :buildings, only: [:new, :create, :show, :index] do
     resources :news, only: [:new, :create, :index, :edit, :update, :destroy]
     resources :workorders, only: [:new, :create, :index, :update]

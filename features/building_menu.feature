@@ -22,5 +22,6 @@ Feature: Menu with buildings
      And I should see "smallhouse"
      Then I click link "smallhouse"
      And I should see "smallhouse"
-     Then I select "bighouse" from "Building"
+     Then I select "bighouse" from "post_category"
+     And I click "Submit"
      And I should see "bighouse"

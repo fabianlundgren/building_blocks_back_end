@@ -26,4 +26,10 @@ class IndexController < ApplicationController
         redirect_to building_workorders_path(user.building_id)
       end
     end
+
+    def select_building
+      @buildingnew = Building.find_by(user_id: current_user, name: params[:post][:category])
+      session[:current_building_id] = @buildingnew.id
+      redirect_back(fallback_location: root_path)
+    end
 end
