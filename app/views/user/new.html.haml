@@ -11,15 +11,15 @@
       %br/
       = f.select :role, ['tenant','jani']
     .field
-      = f.label :password
+      - f.label :password
       - if @minimum_password_length
         %em
           (#{@minimum_password_length} characters minimum)
       %br/
-      = f.password_field :password, autocomplete: "off"
+      = f.hidden_field :password, autocomplete: "off", value: @code
     .field
-      = f.label :password_confirmation
+      - f.label :password_confirmation
       %br/
-      = f.password_field :password_confirmation, autocomplete: "off"
+      = f.hidden_field :password_confirmation, autocomplete: "off", value: @code
     .actions
       = f.submit "Sign up", class: 'button inc'

@@ -22,8 +22,5 @@ Feature: Invite a user
     Then I click link "invite new user"
     And I fill in "Email" with "morgan@morgan.com"
     And I select "tenant" from "Role"
-    And I fill in "Password" with "12345678"
-    And I fill in "Password confirmation" with "12345678"
     And I click "Sign up"
-    Then show me the page
     And I should see "New user created!"

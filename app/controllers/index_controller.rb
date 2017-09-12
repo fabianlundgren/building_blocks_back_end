@@ -26,8 +26,4 @@ class IndexController < ApplicationController
         redirect_to building_workorders_path(user.building_id)
       end
     end
-    # @help_requests = HelpRequest.where(urgent: true, building_id: session[:current_building_id]).last(10)
-    # @news = News.where(building_id: session[:current_building_id]).last(5)
-    # @facilities = Facility.where(building_id: session[:current_building_id])
-    # @workorder = Workorder.where(building_id: session[:current_building_id]).last(5)
 end
