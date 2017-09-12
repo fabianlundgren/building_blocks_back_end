@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   def index
-    @users = User.all
+    @users = User.where(building_id: session[:current_building_id])
   end
 
   def new
@@ -14,6 +14,14 @@ class UserController < ApplicationController
     if @user.save
       flash[:notice] = "New user created!"
       redirect_to root_path
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "User Deleted!"
+      redirect_back(fallback_location: user_index_path(session[:current_building_id]))
     end
   end
 
