@@ -1,3 +1,5 @@
+- if @building_name
+  = @building_name.name
 %table
   %tr
     %th.help
@@ -21,7 +23,8 @@
             %p.help
               = help.message
           - if help.workorder_id == nil
-            = link_to 'Create work order' , new_workorder_path(help.id), class: 'button tiny inc'
+            - if session[:current_building_id]
+              = link_to 'Create work order' , new_building_workorder_path(session[:current_building_id], help.id), class: 'button tiny inc'
             %br
     %th.news
       - @news.each do |news|

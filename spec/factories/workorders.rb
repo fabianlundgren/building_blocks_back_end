@@ -5,5 +5,6 @@ FactoryGirl.define do
     location "MyString"
     urgent false
     status "MyString"
+    association :building
   end
 end

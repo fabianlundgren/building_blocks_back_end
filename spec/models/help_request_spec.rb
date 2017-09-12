@@ -15,6 +15,7 @@ RSpec.describe HelpRequest, type: :model do
   describe 'Associations' do
     it { is_expected.to have_one :workorder }
     it { is_expected.to belong_to :user }
+    it { is_expected.to belong_to :building }
   end
 
   describe 'Factory' do

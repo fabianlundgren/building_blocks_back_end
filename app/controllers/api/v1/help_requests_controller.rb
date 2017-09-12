@@ -16,6 +16,6 @@ class Api::V1::HelpRequestsController < ApiController
 
 private
   def help_request_params
-    params.permit(:title, :message, :urgent, :user)
+    params.permit(:title, :message, :urgent, :user, :building_id)
   end
 end

@@ -1,7 +1,7 @@
 .base
   %h3 Send work order
   - if @help_request == nil
-    = form_for(@workorder) do |f|
+    = form_for([@building, @workorder]) do |f|
       .field
         = f.label :title
         %br/
@@ -21,7 +21,7 @@
       .actions
         = f.submit "Send", class: 'button inc'
   - else
-    = form_for @workorder, url: workorders_path(help_request_id: @help_request.id),method: 'post' do |f|
+    = form_for @workorder, url: building_workorders_path(@building,help_request_id: @help_request.id),method: 'post' do |f|
       .field
         = f.label :title
         %br/

@@ -5,14 +5,16 @@ class NewsController < ApplicationController
   end
 
   def new
+    @building = Building.find(session[:current_building_id])
     @news = News.new
   end
 
   def create
     @news = News.new news_params
+    @news.building_id = session[:current_building_id]
     if @news.save
       flash[:notice] = "News post created!"
-      redirect_back(fallback_location: new_news_path)
+      redirect_back(fallback_location: building_news_index_path(session[:current_building_id]))
     end
   end
 
@@ -24,7 +26,7 @@ class NewsController < ApplicationController
     @news = News.find(params[:id])
     if @news.update news_params
       flash[:notice] = "News post created!"
-      redirect_back(fallback_location: new_news_path)
+      redirect_back(fallback_location: building_news_index_path(session[:current_building_id]))
     end
   end
 
@@ -32,7 +34,7 @@ class NewsController < ApplicationController
     @news = News.find(params[:id])
     if @news.destroy
       flash[:notice] = "News post Deleted!"
-      redirect_back(fallback_location: news_path)
+      redirect_back(fallback_location: building_news_index_path(session[:current_building_id]))
     end
   end
 

@@ -11,6 +11,10 @@ RSpec.describe News, type: :model do
     it { is_expected.to validate_presence_of :description }
   end
 
+  describe 'Associations' do
+    it { is_expected.to belong_to :building }
+  end
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(create(:news)).to be_valid

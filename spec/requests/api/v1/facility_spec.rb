@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::FacilitiesController, type: :request do
+  let(:building) { create(:building, name: 'bighouse', street: 'bigstreet')}
   let!(:facility) { create(:facility,
     name: 'Sauna',
     description: 'Hot hot Sauna',
     rules: 'No Underwear',
-    status: true)}
+    status: true,
+    building_id: building.id)}
 
   describe 'GET /v1/facilities' do
     it 'should return all the facilities name, description, rules and status' do
@@ -16,8 +18,7 @@ RSpec.describe Api::V1::FacilitiesController, type: :request do
         'name' => 'Sauna',
         'description' => 'Hot hot Sauna',
         'rules' => 'No Underwear',
-        'status' => true
-      }]
+        'status' => true}]
 
       expect(response_json).to eq expected_response
       expect(response.status).to eq 200

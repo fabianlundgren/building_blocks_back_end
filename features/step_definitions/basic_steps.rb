@@ -1,5 +1,6 @@
 Given(/^I am on the create news post page$/) do
-  visit new_news_path
+  building = Building.find_by(name: 'bighouse')
+  visit new_building_news_path(building)
 end
 
 Then(/^I should see "([^"]*)"$/) do |content|
@@ -12,6 +13,10 @@ end
 
 Then(/^I click "([^"]*)"$/) do |button|
   click_button button
+end
+
+Then(/^I click link"([^"]*)"$/) do |button|
+  click_link link
 end
 
 Then(/^show me the page$/) do
@@ -29,6 +34,20 @@ end
 Given(/^the following users exist$/) do |table|
   table.hashes.each do |hash|
    @user = create(:user, hash)
+  end
+end
+
+Given(/^the following buildings exist$/) do |table|
+  user = User.find_by(email: "nubbe@nubbe.com")
+  table.hashes.each do |hash|
+   create(:building, name: hash[:name], street: hash[:street], user_id: user.id)
+  end
+end
+
+Given(/^the following janitor exist$/) do |table|
+  building = Building.find_by(name: "bighouse")
+  table.hashes.each do |hash|
+   create(:user, email: hash[:email], password: hash[:password],password_confirmation: hash[:password_confirmation], role: hash[:role], building_id: building.id)
   end
 end
 

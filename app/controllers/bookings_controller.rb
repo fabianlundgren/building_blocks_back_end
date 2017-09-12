@@ -4,27 +4,30 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = @facility.bookings
+    @building = Building.find(session[:current_building_id])
   end
 
   def show
+      @building = Building.find(session[:current_building_id])
   end
 
   def new
     @facility = Facility.find(params[:facility_id])
     @date = params[:date]
     @bookings = Booking.where(facility_id: params[:facility_id])
+    @building = Building.find(session[:current_building_id])
   end
 
   def edit
   end
 
   def create
-    @booking = Booking.new(start_time: params[:date],name: 'Admin',facility_id: params[:facility_id])
+    @booking = Booking.new(start_time: params[:date],name: 'Admin',facility_id: params[:facility_id], building_id: session[:current_building_id])
     #Change name tester to username
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to facility_booking_path(@facility, @booking) , notice: 'Booking was successfully created.' }
+        format.html { redirect_to building_facility_booking_path(session[:current_building_id], @facility, @booking) , notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }

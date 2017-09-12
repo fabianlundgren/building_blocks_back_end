@@ -4,5 +4,6 @@ FactoryGirl.define do
     message "MyString"
     urgent true
     association :user
+    association :building
   end
 end
