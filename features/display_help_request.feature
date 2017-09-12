@@ -13,7 +13,7 @@ Feature: Show help request for admin
    Given the following help request messages exist
     | title   | message           |
     | Johan   | Pants are burning |
-    | Casper  | Stuck in lift   |
+    | Casper  | Stuck in lift     |
 
   Scenario: Call for help messages are displayed
     Given I am on the root page

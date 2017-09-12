@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20170710084231) do
     t.integer  "user_id"
     t.index ["building_id"], name: "index_help_requests_on_building_id", using: :btree
     t.index ["user_id"], name: "index_help_requests_on_user_id", using: :btree
-    t.index ["building_id"], name: "index_help_requests_on_building_id", using: :btree
     t.index ["workorder_id"], name: "index_help_requests_on_workorder_id", using: :btree
   end
 
