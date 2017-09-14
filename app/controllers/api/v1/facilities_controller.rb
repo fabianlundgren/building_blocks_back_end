@@ -1,5 +1,6 @@
 class Api::V1::FacilitiesController < ApiController
   def index
+    binding.pry
     @facilities = Facility.all
   end
 
