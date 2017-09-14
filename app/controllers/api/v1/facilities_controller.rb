@@ -1,6 +1,10 @@
 class Api::V1::FacilitiesController < ApiController
   def index
-    @facilities = Facility.where(building_id: current_user.building_id)
+    if current_user
+      @facilities = Facility.where(building_id: current_user.building_id)
+    else
+      @facilities = Facility.all
+    end
   end
 
   def show
