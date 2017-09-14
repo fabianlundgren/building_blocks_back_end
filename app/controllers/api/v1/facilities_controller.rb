@@ -1,7 +1,7 @@
 class Api::V1::FacilitiesController < ApiController
   def index
     binding.pry
-    @facilities = Facility.all
+    @facilities = Facility.where(building_id: current_user.building_id)
   end
 
   def show
