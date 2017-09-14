@@ -7,9 +7,9 @@ RSpec.describe Api::V1::NewsController, type: :request do
     it 'should return the current building' do
       get '/api/v1/buildings'
 
-      expected_response = [{
+      expected_response = {
         'id' => news.id, 'name' => 'Main_building'
-      }]
+      }
 
       expect(response_json).to eq expected_response
       expect(response.status).to eq 200

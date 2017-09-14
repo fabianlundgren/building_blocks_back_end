@@ -3,7 +3,7 @@ class Api::V1::BuildingsController < ApiController
     if current_user
       @building = Building.find(current_user.building_id)
     else
-      @building = Building.all
+      @building = Building.first
     end
   end
 end
