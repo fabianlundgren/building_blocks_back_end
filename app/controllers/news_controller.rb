@@ -20,6 +20,7 @@ class NewsController < ApplicationController
 
   def edit
     @news = News.find(params[:id])
+    @buildings = Building.find(session[:current_building_id])
   end
 
   def update
