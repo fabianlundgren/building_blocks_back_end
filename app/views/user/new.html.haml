@@ -1,5 +1,6 @@
 .base
   %h4 Add user
+  = @code
   %br/
   = form_for(:user, :url => {:controller => 'user', :action => 'create'}) do |f|
     .field
