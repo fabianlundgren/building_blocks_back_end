@@ -12,7 +12,7 @@ Feature: Show workorder
     | bighouse    | bigstreet   |
   Given the following work orders messages exist
     | title   | message           | urgent | location |
-    | Fabian  | Pants are gone    | true   | bighouse |
+    | Fabian  | Missing phone     | true   | bighouse |
 
   Scenario: I create and send a work order
     Given I am on the root page
@@ -24,5 +24,5 @@ Feature: Show workorder
     Given I am on the work orders index page
     Then I should see "Work order"
     And I should see "Fabian"
-    And I should see "Pants are gone"
+    And I should see "Missing phone"
     And I should see "bighouse"

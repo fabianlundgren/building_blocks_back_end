@@ -12,8 +12,8 @@ Feature: Show help request for admin
     | bighouse    | bigstreet   |
    Given the following help request messages exist
     | title   | message           |
-    | Johan   | Pants are burning |
-    | Casper  | Stuck in toilet   |
+    | Johan   | Apartment to hot  |
+    | Casper  | Tenant request    |
 
   Scenario: Call for help messages are displayed
     Given I am on the root page
@@ -25,6 +25,6 @@ Feature: Show help request for admin
     Given I am on the show help request page
     Then I should see "Help request messages"
     And I should see "Johan"
-    And I should see "Pants are burning"
+    And I should see "Apartment to hot"
     And I should see "Casper"
-    Then I should see "Stuck in toilet"
+    Then I should see "Tenant request"
