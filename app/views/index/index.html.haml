@@ -1,5 +1,8 @@
 - if @building_name
   = @building_name.name
+  = form_tag select_building_path, method: 'post' do |f|
+    =select('post', "category", @buildings.distinct.pluck(:name) {|p| [ p.name , p.id ] }, {prompt: 'building'})
+    = submit_tag 'Submit', class: 'round button'
 %table
   %tr
     %th.help
