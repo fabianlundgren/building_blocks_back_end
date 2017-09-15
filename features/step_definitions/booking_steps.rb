@@ -1,5 +1,6 @@
 Given(/^there is a facility named "([^"]*)"$/) do |name|
-  facility = create(:facility, name: name)
+  @building = Building.find_by(name: "bighouse")
+  facility = create(:facility, name: name, building_id: @building.id)
 end
 
 Given(/^I am on the booking page for "([^"]*)"$/) do |name|
