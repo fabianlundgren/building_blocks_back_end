@@ -7,7 +7,6 @@ Feature: Admin sign up
    Given I am on the root page
    Then I should see "Sign up"
    And I fill in "Email" with "morgan@morgan.com"
-   And I select "admin" from "Role"
    And I fill in "Password" with "12345678"
    And I fill in "Password confirmation" with "12345678"
    And I click "Sign up"

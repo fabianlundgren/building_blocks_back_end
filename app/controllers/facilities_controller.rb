@@ -1,7 +1,7 @@
 class FacilitiesController < ApplicationController
 
   def index
-    @facilities = Facility.all
+    @facilities = Facility.where(building_id: session[:current_building_id])
     @building = Building.find(session[:current_building_id])
   end
 

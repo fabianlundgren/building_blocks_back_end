@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     authenticated :user do
       root to: 'index#index'
     end
+    resources :user, :controller => "user"
     unauthenticated :user do
       root to: 'devise/registrations#new', as: :unauthenticated_root
     end
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   resources :buildings, only: [:new, :create, :show, :index] do
     resources :news, only: [:new, :create, :index, :edit, :update, :destroy]
     resources :workorders, only: [:new, :create, :index, :update]
-    resources :help_requests, only: [:index, :destroy]
+    resources :help_requests, only: [:index, :destroy, :new, :create]
     resources :facilities, only: [:new, :create, :index, :show, :destroy] do
       resources :bookings, only: [:new, :create, :index, :show, :edit, :destroy]
       resources :timeslots, only: [:create, :destroy]
