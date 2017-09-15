@@ -1,0 +1,28 @@
+.base
+  %h4 Add user
+  %br/
+  = form_for(:user, :url => {:controller => 'user', :action => 'create'}) do |f|
+    .field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true
+    .field
+      = f.label :role
+      %br/
+      = f.select :role, ['tenant','jani']
+    .field
+      - f.label :password
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} characters minimum)
+      %br/
+      = f.hidden_field :password, autocomplete: "off", value: @code
+    .field
+      - f.label :password_confirmation
+      %br/
+      = f.hidden_field :password_confirmation, autocomplete: "off", value: @code
+    .actions
+      = f.submit "Sign up", class: 'button inc'
+      %br/
+      %br/
+      = link_to 'Mange users', user_index_path, class: 'button inc'
