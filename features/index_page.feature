@@ -5,8 +5,8 @@ Feature: add layout and information to index
 
   Background:
     Given the following users exist
-      | email           | password  | password_confirmation |
-      | nubbe@nubbe.com | 12345678  | 12345678              |
+      | email           | password  | password_confirmation | role  |
+      | nubbe@nubbe.com | 12345678  | 12345678              | admin |
     Given the following buildings exist
       | name        | street      |
       | bighouse    | bigstreet   |
@@ -20,7 +20,12 @@ Feature: add layout and information to index
       | new lift     | no more stairs  |
 
     Scenario: Call for help messages are displayed
-      Given I am logged in as "nubbe@nubbe.com"
+      Given I am on the root page
+      Then I should see "Sign up"
+      And I click link "Log in"
+      And I fill in "Email" with "nubbe@nubbe.com"
+      And I fill in "Password" with "12345678"
+      And I click "Log in"
       Given I am on the index page
       And I should see "Fabian"
       And I should see "With peeing dog"

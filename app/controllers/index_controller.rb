@@ -1,9 +1,5 @@
 class IndexController < ApplicationController
   def index
-    @help_requests = HelpRequest.where(urgent: true).last(10)
-    @news = News.last(5)
-    @facilities = Facility.all
-    @workorder = Workorder.last(5)
     @buildings = Building.where(user_id: current_user)
     if current_user.admin?
       if session[:current_building_id] == nil
@@ -18,6 +14,10 @@ class IndexController < ApplicationController
         end
         else
           @building_name = Building.find(session[:current_building_id])
+          @help_requests = HelpRequest.where(urgent: true, building_id: session[:current_building_id]).last(10)
+          @news = News.where(building_id: session[:current_building_id]).last(5)
+          @facilities = Facility.where(building_id: session[:current_building_id])
+          @workorder = Workorder.where(building_id: session[:current_building_id]).last(5)
         end
       end
       if current_user.janitor?
