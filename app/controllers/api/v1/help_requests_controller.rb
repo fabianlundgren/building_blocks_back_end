@@ -3,6 +3,7 @@ class Api::V1::HelpRequestsController < ApiController
     @help_request = HelpRequest.new help_request_params
     if current_user
       @help_request.update(user_id: current_user.id)
+      @help_request.building_id = current_user.building_id
     elsif User.first
       user = User.first
       @help_request.update(user_id: user.id)

@@ -12,7 +12,7 @@ Feature: Creat a new workorder
     | bighouse    | bigstreet   |
   Given the following help request messages exist
     | title   | message           | urgent |
-    | Fabian  | Pants are gone    | true   |
+    | Fabian  | Missing phone     | true   |
 
 
   Scenario: I create and send a work order
@@ -25,7 +25,7 @@ Feature: Creat a new workorder
     And I click link "New Work order"
     Then I should see "Send work order"
     And I fill in "Title" with "Fabian"
-    And I fill in "Message" with "Pants are gone"
+    And I fill in "Message" with "Missing phone"
     And I fill in "Location" with "Västervik"
     And I check Urgent check box
     And I click "Send"
@@ -42,7 +42,7 @@ Feature: Creat a new workorder
     And I click link "Create work order"
     Then I should see "Send work order"
     And I should see "Fabian" in field "workorder_title"
-    And I should see "Pants are gone"
+    And I should see "Missing phone"
     And I fill in "Location" with "Västervik"
     And I check Urgent check box
     And I click "Send"

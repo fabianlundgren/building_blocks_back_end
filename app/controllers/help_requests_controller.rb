@@ -1,6 +1,6 @@
 class HelpRequestsController < ApplicationController
   def index
-    @help_requests = HelpRequest.last(20)
+    @help_requests = HelpRequest.where(building_id: session[:current_building_id]).last(20)
   end
 
   def destroy

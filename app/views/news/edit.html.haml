@@ -1,6 +1,6 @@
 .base
   %h2 Editing #{@news.title}
-  = form_for (@news) do |f|
+  = form_for [@buildings, @news] do |f|
     .field
       = f.label :title
       %br/

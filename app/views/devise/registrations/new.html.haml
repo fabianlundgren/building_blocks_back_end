@@ -10,9 +10,9 @@
       %br/
       = f.email_field :email, autofocus: true
     .field
-      = f.label :role
+      - f.label :role
       %br/
-      = f.select :role, ['admin', 'janitor']
+      = f.hidden_field :role, value: 'admin'
     .field
       = f.label :password
       - if @minimum_password_length

@@ -1,7 +1,7 @@
 class NewsController < ApplicationController
 
   def index
-    @news = News.all
+    @news = News.where(building_id: session[:current_building_id])
   end
 
   def new
@@ -20,6 +20,7 @@ class NewsController < ApplicationController
 
   def edit
     @news = News.find(params[:id])
+    @buildings = Building.find(session[:current_building_id])
   end
 
   def update
