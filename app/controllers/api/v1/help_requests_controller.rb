@@ -4,6 +4,7 @@ class Api::V1::HelpRequestsController < ApiController
     if current_user
       @help_request.update(user_id: current_user.id)
       @help_request.building_id = current_user.building_id
+      @help_request.name = "#{current_user.first_name} #{current_user.last_name}"
     elsif User.first
       user = User.first
       @help_request.update(user_id: user.id)
