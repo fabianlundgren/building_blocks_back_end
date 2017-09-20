@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to facility_bookings_path, notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to "/buildings/#{session[:current_building_id]}/facilities/#{params[:facility_id]}/bookings", notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

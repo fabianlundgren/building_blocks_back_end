@@ -11,6 +11,7 @@ class UserController < ApplicationController
   def create
     @user = User.new sign_up_params
     @user.building_id = session[:current_building_id]
+    binding.pry
     if @user.save
       flash[:notice] = "New user created!"
       redirect_to root_path
