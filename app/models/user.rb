@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :role, inclusion: {in: VALID_ROLES, message: '%{value} is not a valid user role'}
   has_many :help_requests
   has_many :building
+  has_many :bookings
 
   def admin?
     self.role == 'admin'

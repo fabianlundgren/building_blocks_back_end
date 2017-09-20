@@ -9,6 +9,7 @@ class Api::V1::BookingsController < ApiController
     if current_user
       @booking.building_id = current_user.building_id
       @booking.name = "#{current_user.first_name} #{current_user.last_name}"
+      @booking.user_id = current_user.id
     end
     if @booking.name == nil
       render json: {message: @booking.errors.full_messages}, status: 400
@@ -21,6 +22,6 @@ class Api::V1::BookingsController < ApiController
 
   private
   def booking_params
-    params.permit(:name, :start_time, :id, :building_id)
+    params.permit(:name, :start_time, :id, :building_id, :user_id)
   end
 end
