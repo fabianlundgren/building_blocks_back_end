@@ -15,6 +15,7 @@ RSpec.describe User, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many :building }
+    it { is_expected.to have_many :bookings }
   end
 
   describe 'Custom Validations' do
