@@ -4,9 +4,9 @@ json.array! @facilities.each do |facility|
     json.description facility.description
     json.rules facility.rules
     json.status facility.status
-    book = Booking.find_by(facility_id: facility.id, user_id: current_user.id)
+    book = Booking.where(facility_id: facility.id, user_id: current_user.id)
     if book == nil
     else
-      json.book book.id
+      json.count book.count(:all)
     end
 end
