@@ -5,6 +5,7 @@ class Api::V1::BookingsController < ApiController
 
   def create
     @booking = Booking.new booking_params
+    binding.pry
     @booking.facility_id = params[:facility_id]
     if current_user
       @booking.building_id = current_user.building_id
@@ -22,6 +23,6 @@ class Api::V1::BookingsController < ApiController
 
   private
   def booking_params
-    params.permit(:name, :start_time, :id, :building_id, :user_id)
+    params.permit(:name, :start_time, :id, :end_time, :building_id, :user_id)
   end
 end

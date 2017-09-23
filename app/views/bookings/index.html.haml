@@ -19,7 +19,7 @@
         %tr
           %th Name
           %th Start time
-          %th
+          %th End time
           %th
           %th
 
@@ -28,5 +28,6 @@
           %tr
             %td= booking.name
             %td= booking.start_time
+            %td= booking.end_time
             %td= link_to 'Show', building_facility_booking_path(@building, @facility, booking), class: 'button tiny inc'
             %td= link_to 'Destroy', building_facility_booking_path(@building, @facility, booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button tiny inc'

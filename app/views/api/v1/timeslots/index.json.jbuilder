@@ -6,7 +6,11 @@ json.array! @facility.timeslots.each do |timeslot|
   else
     json.min 'min'
   end
-  if @bookings.find_by(start_time: "#{@date} #{timeslot.start_time}") == nil
+  # bok = Timeslot.where(start_time:  @date.to_time.all_day)
+  # @bookings.find_by(start_time: "#{@date} #{timeslot.start_time}") == nil
+
+  end_date = "#{@date} #{timeslot.end_time}".to_time - 1
+  if @bookings.find_by('start_time BETWEEN ? AND ?', "#{@date} #{timeslot.start_time}", end_date.to_s) == nil
     json.start_time timeslot.start_time
     json.end_time timeslot.end_time
   else

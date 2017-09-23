@@ -6,6 +6,9 @@
 %p
   %b Start time:
   = @booking.start_time
+%p
+  %b End time:
+  = @booking.end_time
 
 = link_to 'Edit', edit_building_facility_booking_path(@building, @facility, @booking), class: 'button inc'
 \|
