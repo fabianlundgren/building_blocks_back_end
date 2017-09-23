@@ -5,7 +5,6 @@ class Api::V1::BookingsController < ApiController
 
   def create
     @booking = Booking.new booking_params
-    binding.pry
     @booking.facility_id = params[:facility_id]
     if current_user
       @booking.building_id = current_user.building_id

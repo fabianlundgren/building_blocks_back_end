@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(start_time: params[:date],name: 'Admin',facility_id: params[:facility_id], building_id: session[:current_building_id])
-    #Change name tester to username
+    @booking.user_id = current_user.id
 
     respond_to do |format|
       if @booking.save
