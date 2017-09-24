@@ -22,5 +22,6 @@ json.array! @facility.timeslots.each do |timeslot|
     json.bookt 'Booked'
     json.start_time timeslot.start_time
     json.end_time timeslot.end_time
+    json.ids booking.id
   end
 end

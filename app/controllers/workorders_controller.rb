@@ -37,6 +37,6 @@ class WorkordersController < ApplicationController
   private
 
   def workorder_params
-    params.require(:workorder).permit(:title, :message, :location, :urgent, :status, :id )
+    params.require(:workorder).permit(:title, :message, :location, :urgent, :status, :id, :name )
   end
 end

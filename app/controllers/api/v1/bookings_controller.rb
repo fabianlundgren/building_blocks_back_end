@@ -20,6 +20,13 @@ class Api::V1::BookingsController < ApiController
     end
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    if @booking.destroy
+      render json: {message: 'Your booking deleted'}
+    end
+  end
+
   private
   def booking_params
     params.permit(:name, :start_time, :id, :end_time, :building_id, :user_id)

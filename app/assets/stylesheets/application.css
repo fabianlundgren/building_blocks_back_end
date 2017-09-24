@@ -201,11 +201,6 @@ h4, h3 {
   text-align: center;
 }
 
-ul.menu.menu-desktop {
-  display: inline;
-  text-align: center;
-  font-family: 'Julius Sans One', sans-serif;
-}
 
 .card-divider {
   background-color: #fff;
@@ -230,4 +225,29 @@ p.help, .work, .booking {
   position: absolute;
     left: 53%;
     margin-left: -100px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
 }
