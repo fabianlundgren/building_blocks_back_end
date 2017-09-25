@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170710084231) do
+ActiveRecord::Schema.define(version: 20170921062514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(version: 20170710084231) do
     t.datetime "updated_at",  null: false
     t.integer  "facility_id"
     t.integer  "building_id"
+    t.integer  "user_id"
+    t.datetime "end_time"
     t.index ["building_id"], name: "index_bookings_on_building_id", using: :btree
     t.index ["facility_id"], name: "index_bookings_on_facility_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
   create_table "buildings", force: :cascade do |t|
@@ -57,7 +60,10 @@ ActiveRecord::Schema.define(version: 20170710084231) do
     t.boolean  "urgent",       default: false
     t.integer  "workorder_id"
     t.integer  "building_id"
+    t.integer  "user_id"
+    t.string   "name"
     t.index ["building_id"], name: "index_help_requests_on_building_id", using: :btree
+    t.index ["user_id"], name: "index_help_requests_on_user_id", using: :btree
     t.index ["workorder_id"], name: "index_help_requests_on_workorder_id", using: :btree
   end
 
@@ -103,6 +109,8 @@ ActiveRecord::Schema.define(version: 20170710084231) do
     t.json     "tokens"
     t.string   "role",                   default: "tenant"
     t.integer  "building_id"
+    t.string   "first_name"
+    t.string   "last_name"
     t.index ["building_id"], name: "index_users_on_building_id", using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -126,9 +134,11 @@ ActiveRecord::Schema.define(version: 20170710084231) do
 
   add_foreign_key "bookings", "buildings"
   add_foreign_key "bookings", "facilities"
+  add_foreign_key "bookings", "users"
   add_foreign_key "buildings", "users"
   add_foreign_key "facilities", "buildings"
   add_foreign_key "help_requests", "buildings"
+  add_foreign_key "help_requests", "users"
   add_foreign_key "help_requests", "workorders"
   add_foreign_key "news", "buildings"
   add_foreign_key "timeslots", "buildings"

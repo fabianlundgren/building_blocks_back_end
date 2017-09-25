@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
 
   describe 'DB table' do
     it { is_expected.to have_db_column :email }
+    it { is_expected.to have_db_column :first_name }
+    it { is_expected.to have_db_column :last_name }
     it { is_expected.to have_db_column :encrypted_password }
   end
 
@@ -13,6 +15,7 @@ RSpec.describe User, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many :building }
+    it { is_expected.to have_many :bookings }
   end
 
   describe 'Custom Validations' do
@@ -25,6 +28,10 @@ RSpec.describe User, type: :model do
       subject.save
       expect(subject.errors.full_messages).to include 'Role clown is not a valid user role'
     end
+  end
+
+  describe 'Associations' do
+    it { is_expected.to have_many :help_requests }
   end
 
   describe 'Factory' do

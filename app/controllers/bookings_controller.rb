@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(start_time: params[:date],name: 'Admin',facility_id: params[:facility_id], building_id: session[:current_building_id])
-    #Change name tester to username
+    @booking.user_id = current_user.id
 
     respond_to do |format|
       if @booking.save
@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to facility_bookings_path, notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to "/buildings/#{session[:current_building_id]}/facilities/#{params[:facility_id]}/bookings", notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

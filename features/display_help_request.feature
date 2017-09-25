@@ -15,6 +15,7 @@ Feature: Show help request for admin
     | Johan   | Apartment to hot  |
     | Casper  | Tenant request    |
 
+
   Scenario: Call for help messages are displayed
     Given I am on the root page
     Then I should see "Sign up"
@@ -28,3 +29,4 @@ Feature: Show help request for admin
     And I should see "Apartment to hot"
     And I should see "Casper"
     Then I should see "Tenant request"
+

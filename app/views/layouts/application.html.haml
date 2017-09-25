@@ -15,40 +15,48 @@
     = csrf_meta_tag
 
   %body
-    .head
-      = image_tag('logo4.png',  size: "650x100")
-      %br
-      - if session[:current_building_id]
-        - if current_user
-          - if current_user.role == 'janitor'
-            Janitor
+    %table
+      %tr
+        %th{:colspan => "2"}
+          .head
+            = image_tag('logo4.png',  size: "650x100")
+
             = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
-          - else
-            %ul.menu.menu-desktop
-              %li
-                = link_to 'Home', root_path
-              %li
-                = link_to 'Help requests', building_help_requests_path(session[:current_building_id])
-              %li
-                = link_to 'Facilities', building_facilities_path(session[:current_building_id])
-              %li
-                = link_to 'News', building_news_index_path(session[:current_building_id])
-              %li
-                = link_to 'Add building', new_building_path
-              %li
-                = link_to 'New Work order', new_building_workorder_path(session[:current_building_id])
-              %li
-                = link_to 'invite new user', new_user_path
-              %li
+
+      %tr
+        %td{:style => "width: 15%;"}
+          - if session[:current_building_id]
+            - if current_user
+              - if current_user.role == 'janitor'
+                Janitor
                 = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
-              - if current_user == nil
-                %li
-                  = link_to 'Sign up', new_user_registration_path
-    .body
-      .alert= alert
-      - if flash[:notice]
-        .notice= flash[:notice]
-    = yield
-    %br
-    .footer
-      BuildingBlockz inc
+              - else
+                %ul
+                  %li
+                    = link_to 'Home', root_path
+                  %li
+                    = link_to 'Help requests', building_help_requests_path(session[:current_building_id])
+                  %li
+                    = link_to 'Facilities', building_facilities_path(session[:current_building_id])
+                  %li
+                    = link_to 'News', building_news_index_path(session[:current_building_id])
+                  %li
+                    = link_to 'Add building', new_building_path
+                  %li
+                    = link_to 'New Work order', new_building_workorder_path(session[:current_building_id])
+                  %li
+                    = link_to 'invite new user', new_user_path
+                  %li
+                    = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
+                  - if current_user == nil
+                    %li
+                      = link_to 'Sign up', new_user_registration_path
+        %td{style: "width: 85%; height: 800px; background-color: #fff;", :valign => "top", align: "center"}
+          .body
+            .alert= alert
+            - if flash[:notice]
+              .notice= flash[:notice]
+          = yield
+          %br
+          .footer
+            BuildingBlockz inc

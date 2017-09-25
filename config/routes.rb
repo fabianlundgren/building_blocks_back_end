@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       resources :news, only: [:index], defaults: { format: 'json' }
       resources :buildings, only: [:index], defaults: { format: 'json' }
       resources :facilities, only: [:index, :show], defaults: { format: 'json'} do
-        resources :bookings, only: [:new, :create, :index, :show, :edit], defaults: { format: 'json'}
+        resources :bookings, only: [:new, :create, :index, :show, :edit, :destroy], defaults: { format: 'json'}
         resources :timeslots, only: [:index]
       end
       resources :help_requests, only: [:create], defaults: { format: 'json' }

@@ -5,6 +5,7 @@ RSpec.describe HelpRequest, type: :model do
     it { is_expected.to have_db_column :title }
     it { is_expected.to have_db_column :message }
     it { is_expected.to have_db_column :urgent }
+    it { is_expected.to have_db_column :name }
   end
 
   describe 'Validations' do
@@ -14,6 +15,7 @@ RSpec.describe HelpRequest, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_one :workorder }
+    it { is_expected.to belong_to :user }
     it { is_expected.to belong_to :building }
   end
 

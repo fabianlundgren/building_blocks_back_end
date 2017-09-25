@@ -8,7 +8,7 @@ RSpec.describe Api::V1::NewsController, type: :request do
       get '/api/v1/buildings'
 
       expected_response = {
-        'id' => news.id, 'name' => 'Main_building'
+        'id' => news.id, 'name' => 'Main_building', 'count' => 0
       }
 
       expect(response_json).to eq expected_response

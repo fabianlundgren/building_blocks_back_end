@@ -31,11 +31,13 @@ RSpec.describe "Bookings", type: :request do
 
    describe 'POST /v1/facilities/:facility_id/bookings' do
      it 'should collect call for Bookings from mobile client' do
+       @user = create(:user, email: "mail1@mail1.com", password: "12345678")
 
        params = {
          name: 'Nisse',
          start_time: '2017-04-01',
-         building_id: building.id
+         building_id: building.id,
+         user_id: @user.id
                  }
 
        post "/api/v1/facilities/#{facility.id}/bookings", params
