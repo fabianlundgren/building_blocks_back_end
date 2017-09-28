@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926134702) do
+ActiveRecord::Schema.define(version: 20170928193241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,12 @@ ActiveRecord::Schema.define(version: 20170926134702) do
     t.datetime "updated_at",  null: false
     t.integer  "building_id"
     t.index ["building_id"], name: "index_news_on_building_id", using: :btree
+  end
+
+  create_table "timelists", force: :cascade do |t|
+    t.time     "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "timeslots", force: :cascade do |t|
