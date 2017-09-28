@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928193241) do
+ActiveRecord::Schema.define(version: 20170928195945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,8 +81,10 @@ ActiveRecord::Schema.define(version: 20170928193241) do
 
   create_table "timelists", force: :cascade do |t|
     t.time     "time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "facility_id"
+    t.index ["facility_id"], name: "index_timelists_on_facility_id", using: :btree
   end
 
   create_table "timeslots", force: :cascade do |t|
@@ -150,6 +152,7 @@ ActiveRecord::Schema.define(version: 20170928193241) do
   add_foreign_key "help_requests", "users"
   add_foreign_key "help_requests", "workorders"
   add_foreign_key "news", "buildings"
+  add_foreign_key "timelists", "facilities"
   add_foreign_key "timeslots", "buildings"
   add_foreign_key "timeslots", "facilities"
   add_foreign_key "users", "buildings"
