@@ -3,6 +3,23 @@
   %h4
     = @facility.name
     %br
+    - if @facility.timelists[0].nil?
+      = form_tag building_facility_timelists_path(@building, @facility), {method: :post} do
+        = label_tag 'Opening time'
+        = select_tag 'start_time', options_for_select(Timelist.start_end)
+        = label_tag 'Closing time'
+        = select_tag 'end_time', options_for_select(Timelist.start_end)
+        = label_tag 'Interval in minutes'
+        = select_tag 'gap', options_for_select(Timelist.minutes_gap)
+        = submit_tag "Set opening and closing time", class: 'button inc'
+    - else
+      current timeslots
+      %br
+
+      - @facility.timelists.order(:created_at).each do |timeslot|
+        = timeslot.time
+        %br
+      = link_to "Update timelist", building_facility_timelist_path(@building, params[:id], 3), method: :delete, class: 'button inc'
     %br
     - if @facility.timeslots[0].nil?
       = form_tag building_facility_timeslots_path(@building, @facility), {method: :post} do

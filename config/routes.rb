@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :facilities, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
       resources :bookings, only: [:new, :create, :index, :show, :edit, :destroy]
       resources :timeslots, only: [:create, :destroy]
+      resources :timelists, only: [:create, :destroy]
     end
   end
 
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
       resources :facilities, only: [:index, :show], defaults: { format: 'json'} do
         resources :bookings, only: [:new, :create, :index, :show, :edit, :destroy], defaults: { format: 'json'}
         resources :timeslots, only: [:index]
+        resources :timelists, only: [:show]
       end
       resources :help_requests, only: [:create], defaults: { format: 'json' }
     end

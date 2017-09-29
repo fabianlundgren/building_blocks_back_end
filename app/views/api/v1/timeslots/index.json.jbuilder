@@ -35,4 +35,24 @@ else
         end
     end
   end
+  date = @date.to_datetime
+  date = date.midnight..date.end_of_day
+  json.array! @facility.timelists.each do |timelist|
+    if @bookings.where(start_time: date) == []
+      json.time timelist.time.strftime("%H:%M:%S")
+      json.value timelist.time.strftime("%H:%M:%S")
+    end
+    @bookings.where(start_time: date).each do |bo|
+      bostart = bo.start_time.to_time + 1
+      boend = bo.end_time.to_time - 1
+      atime = timelist.time.strftime("%H:%M:%S")
+      if atime.between?(bostart.strftime("%H:%M:%S"), boend.strftime("%H:%M:%S"))
+        json.time "bookt #{timelist.time.strftime("%H:%M:%S")}"
+        json.value ""
+      else
+        json.time timelist.time.strftime("%H:%M:%S")
+        json.value timelist.time.strftime("%H:%M:%S")
+     end
+    end
+  end
 end
