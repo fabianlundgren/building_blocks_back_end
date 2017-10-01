@@ -17,5 +17,18 @@
       = f.label 'Available', class: 'button inc'
       %br/
       = f.check_box(:status, {}, true, false)
+    .field
+      = f.label 'Dynamiska bookning'
+      = f.select :dyntime, ['on', 'off']
+    .field
+      = f.label "range of days for booking"
+      %br/
+      %br/
+      = f.select :bok_dur, ['7','14','30','60','90','365']
+    .field
+      = f.label "Max nummber off bookings"
+      %br/
+      %br/
+      = f.select :bok_day, ['1','2','3','4','5','6']
     .actions
       = f.submit "Submit", class: 'button inc'

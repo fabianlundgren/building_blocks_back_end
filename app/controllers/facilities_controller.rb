@@ -48,6 +48,6 @@ class FacilitiesController < ApplicationController
   private
 
   def facility_params
-    params.require(:facility).permit(:name, :description, :status, :rules, :dyntime, :bok_dur)
+    params.require(:facility).permit(:name, :description, :status, :rules, :dyntime, :bok_dur, :bok_day)
   end
 end
