@@ -22,8 +22,6 @@ RSpec.describe "Timeslots", type: :request do
       get api_v1_facility_timeslots_path(facility.id) , params
 
       expected_response = [{
-       'count' => 0,
-       'max'=> 'max',
        'start_time' => '12:00',
        'end_time' => '16:00'
       }]

@@ -33,7 +33,7 @@ RSpec.describe Api::V1::FacilitiesController, type: :request do
         'name' => 'Sauna',
         'description' => 'Hot hot Sauna',
         'rules' => 'No Underwear',
-        'bok_dur'=>nil, 'count'=>0, 'max2'=>'max',
+        'bok_dur' => nil, 'dyntime' => nil, 'count' => 0, 'min' => 'min'
         }
 
       expect(response_json).to eq expected_response
