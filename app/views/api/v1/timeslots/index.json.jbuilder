@@ -1,5 +1,5 @@
 if @facility.dyntime == "on"
-  json.array! @bookings.sort_by(&:start_time).each do |booking|
+  json.array! @booker.sort_by(&:start_time).each do |booking|
     if "#{current_user.first_name} #{current_user.last_name}" == booking.name
       json.my "true"
     end

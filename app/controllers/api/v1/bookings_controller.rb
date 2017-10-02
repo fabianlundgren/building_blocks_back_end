@@ -10,6 +10,8 @@ class Api::V1::BookingsController < ApiController
       @booking.building_id = current_user.building_id
       @booking.name = "#{current_user.first_name} #{current_user.last_name}"
       @booking.user_id = current_user.id
+    end
+    if Facility.find(params[:facility_id]).dyntime == 'on'
       maxtime = Facility.find(params[:facility_id]).bok_dur
       if Booking.where(['start_time BETWEEN ? AND ?', @booking.start_time + 1, @booking.end_time - 1,]) == []
         if (@booking.start_time.strftime("%H.%M").to_f - @booking.end_time.strftime("%H.%M").to_f).abs  >  maxtime.to_f
