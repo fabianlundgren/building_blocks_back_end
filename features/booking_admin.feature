@@ -23,7 +23,7 @@ Feature: Admin booking page
       Then show me the page
     And I click link "Manage timeslots"
     Then show me the page
-    And I select "9" from "start_time"
+    And I select "9" from "stime"
     And I select "5" from "time_slot"
     And I select "3" from "hours"
     And I click "Set schedule"

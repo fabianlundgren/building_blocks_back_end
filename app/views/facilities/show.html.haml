@@ -24,7 +24,7 @@
     - if @facility.timeslots[0].nil?
       = form_tag building_facility_timeslots_path(@building, @facility), {method: :post} do
         = label_tag 'Start time'
-        = select_tag 'start_time', options_for_select(Facility.start_time)
+        = select_tag 'start_time', options_for_select(Facility.start_time),id: 'stime'
         = label_tag 'Number of time slot'
         = select_tag 'time_slot', options_for_select(Facility.time_slot)
         = label_tag 'Number of hours'
