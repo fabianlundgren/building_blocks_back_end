@@ -23,11 +23,11 @@
       = f.label "range of days for booking"
       %br/
       %br/
-      = f.select :bok_dur, ['1','2','3','4','4','365']
+      = f.select :bok_dur, ['1','2','3','4','5','365']
     .field
       = f.label "Max nummber off bookings"
       %br/
       %br/
       = f.select :bok_day, ['1','2','3','4','5','6']
     .actions
-      = f.submit "Submit", class: 'button inc'
+      = f.submit "Submit", class: 'round button'

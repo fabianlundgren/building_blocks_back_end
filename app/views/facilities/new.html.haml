@@ -14,7 +14,7 @@
       %br/
       = f.text_field :rules
     .field
-      = f.label 'Available', class: 'button inc'
+      = f.label 'Available', class: 'round button'
       %br/
       = f.check_box(:status, {}, true, false)
     .field
@@ -31,4 +31,4 @@
       %br/
       = f.select :bok_day, ['1','2','3','4','5','6']
     .actions
-      = f.submit "Submit", class: 'button inc'
+      = f.submit "Submit", class: 'round button'

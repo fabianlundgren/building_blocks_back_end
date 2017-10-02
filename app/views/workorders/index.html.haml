@@ -18,4 +18,4 @@
         = form_tag building_workorder_path(@building, work.id), {method: :patch} do
           = label_tag 'Set status'
           = select_tag :status, options_for_select(['In progress','Unable to complete','Done'], selected: work.status)
-          = submit_tag "Update status", class: 'button inc'
+          = submit_tag "Update status", class: 'round button'

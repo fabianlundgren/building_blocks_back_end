@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20170928195945) do
     t.datetime "updated_at",                   null: false
     t.boolean  "urgent",       default: false
     t.integer  "workorder_id"
-    t.integer  "building_id"
     t.integer  "user_id"
+    t.integer  "building_id"
     t.string   "name"
     t.index ["building_id"], name: "index_help_requests_on_building_id", using: :btree
     t.index ["user_id"], name: "index_help_requests_on_user_id", using: :btree

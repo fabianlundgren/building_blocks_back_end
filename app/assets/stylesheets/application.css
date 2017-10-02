@@ -35,14 +35,14 @@
 
 .footer {
     background-color: #23c1a0;
-    color: white;
+    color: #585858;
     text-align: right;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 25px;
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: sans-serif;
 
 }
 
@@ -197,8 +197,9 @@ th {
 
 
 h4, h3 {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: sans-serif;
   text-align: center;
+  font-size: 32px;
 }
 
 
@@ -206,9 +207,34 @@ h4, h3 {
   background-color: #fff;
 }
 
+.round.button {
+  color: #23c1a0;
+  background-color: #585858;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
 .button.inc {
-  background-color: #23c1a0;
-  font-family: 'Julius Sans One', sans-serif;
+  color: #23c1a0;
+  background-color: #424242;
+  font-family: sans-serif;
+}
+
+.button.tiny.alert {
+  color: #F5A9A9;
+  background-color: #B40404;
+  font-family: sans-serif;
+  font-size: 15px;
+  border-radius: 6px;
+}
+
+.button.tiny.inc {
+  color: #23c1a0;
+  background-color: #585858;
+  font-family: sans-serif;
+  font-size: 15px;
+  border-radius: 6px;
 }
 
 p {
