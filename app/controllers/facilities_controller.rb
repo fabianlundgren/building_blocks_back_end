@@ -15,6 +15,19 @@ class FacilitiesController < ApplicationController
     @building = Building.find(session[:current_building_id])
   end
 
+  def edit
+    @facility = Facility.find(params[:id])
+    @building = Building.find(session[:current_building_id])
+  end
+
+  def update
+    @facility = Facility.find(params[:id])
+    if @facility.update facility_params
+      flash[:notice] = "Facility Is updated"
+      redirect_back(fallback_location: building_news_index_path(session[:current_building_id]))
+    end
+  end
+
   def create
     @facility = Facility.new facility_params
     @facility.building_id = session[:current_building_id]
@@ -35,6 +48,6 @@ class FacilitiesController < ApplicationController
   private
 
   def facility_params
-    params.require(:facility).permit(:name, :description, :status, :rules)
+    params.require(:facility).permit(:name, :description, :status, :rules, :dyntime, :bok_dur, :bok_day)
   end
 end

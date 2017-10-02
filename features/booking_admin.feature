@@ -21,7 +21,7 @@ Feature: Admin booking page
     Given there is a facility named "Laundry Room"
     And I am on the facility index page
     And I click link "Manage timeslots"
-    And I select "9" from "start_time"
+    And I select "9" from "stime"
     And I select "5" from "time_slot"
     And I select "3" from "hours"
     And I click "Set schedule"

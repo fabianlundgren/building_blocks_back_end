@@ -5,6 +5,9 @@ RSpec.describe Facility, type: :model do
     it { is_expected.to have_db_column :name }
     it { is_expected.to have_db_column :description }
     it { is_expected.to have_db_column :rules }
+    it { is_expected.to have_db_column :bok_dur }
+    it { is_expected.to have_db_column :dyntime }
+    it { is_expected.to have_db_column :bok_day }
     it { is_expected.to have_db_column(:status).of_type(:boolean) }
   end
 
@@ -16,6 +19,7 @@ RSpec.describe Facility, type: :model do
   describe 'Associations' do
     it { is_expected.to have_many :bookings }
     it { is_expected.to have_many :timeslots }
+    it { is_expected.to have_many :timelists }
     it { is_expected.to belong_to :building }
   end
 
