@@ -5,7 +5,7 @@ RSpec.describe Api::V1::FacilitiesController, type: :request do
   let!(:facility) { create(:facility,
     name: 'Sauna',
     description: 'Hot hot Sauna',
-    rules: 'No Underwear',
+    rules: 'No windows',
     status: true,
     building_id: building.id)}
 
@@ -17,8 +17,10 @@ RSpec.describe Api::V1::FacilitiesController, type: :request do
         'id' => facility.id,
         'name' => 'Sauna',
         'description' => 'Hot hot Sauna',
-        'rules' => 'No Underwear',
-        'status' => true}]
+        'rules' => 'No windows',
+        'status' => true,
+        'bok_dur' => nil
+        }]
 
       expect(response_json).to eq expected_response
       expect(response.status).to eq 200
@@ -32,7 +34,7 @@ RSpec.describe Api::V1::FacilitiesController, type: :request do
       expected_response = {
         'name' => 'Sauna',
         'description' => 'Hot hot Sauna',
-        'rules' => 'No Underwear',
+        'rules' => 'No windows',
         'bok_dur' => nil, 'dyntime' => nil, 'count' => 0, 'min' => 'min'
         }
 

@@ -1,8 +1,8 @@
-class Api::V1::TimeslistsController < ApiController
-  def show
+class Api::V1::TimelistsController < ApiController
+  def index
     begin
-      @timelists = Timelist.where(facility_id: params[:facility_id])
-      @bookings = Booking.where(facility_id: params[:facility_id])
+      user = User.find(current_user.id)
+      @bookings = Booking.where(building_id: user.building_id, user_id: user.id)
     rescue => error
       render json: { message: error}, status: 404
     end

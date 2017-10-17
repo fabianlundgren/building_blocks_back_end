@@ -17,7 +17,7 @@
       %br
 
       - @facility.timelists.order(:created_at).each do |timeslot|
-        = timeslot.time
+        = timeslot.time.strftime("%H:%M:%S")
         %br
       = link_to "Update timelist", building_facility_timelist_path(@building, params[:id], 3), method: :delete, class: 'round button'
     %br

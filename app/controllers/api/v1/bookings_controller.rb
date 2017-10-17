@@ -11,9 +11,10 @@ class Api::V1::BookingsController < ApiController
       @booking.name = "#{current_user.first_name} #{current_user.last_name}"
       @booking.user_id = current_user.id
     end
+    boook = Booking.where(facility_id: params[:facility_id])
     if Facility.find(params[:facility_id]).dyntime == 'on'
       maxtime = Facility.find(params[:facility_id]).bok_dur
-      if Booking.where(['start_time BETWEEN ? AND ?', @booking.start_time + 1, @booking.end_time - 1,]) == []
+      if boook.where(['start_time BETWEEN ? AND ?', @booking.start_time , @booking.end_time - 1,]) == []
         if (@booking.start_time.strftime("%H.%M").to_f - @booking.end_time.strftime("%H.%M").to_f).abs  >  maxtime.to_f
           render json: {error: "Max durration for booking is #{maxtime} hours"}
         elsif @booking.name == nil
@@ -24,7 +25,7 @@ class Api::V1::BookingsController < ApiController
           render json: {message: @booking.errors.full_messages}, status: 400
         end
       else
-        render json: {error: "time is bookt"}
+        render json: {error: "time is alredy bookt"}
       end
     else
       if @booking.name == nil

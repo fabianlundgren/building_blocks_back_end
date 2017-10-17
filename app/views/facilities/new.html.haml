@@ -1,34 +1,36 @@
 .base
   %h3 Create a new facility
-  = form_for ([@building, @facility]) do |f|
-    .field
-      = f.label :name
-      %br/
-      = f.text_field :name
-    .field
-      = f.label :description
-      %br/
-      = f.text_area :description
-    .field
-      = f.label :rules
-      %br/
-      = f.text_field :rules
-    .field
-      = f.label 'Available', class: 'round button'
-      %br/
-      = f.check_box(:status, {}, true, false)
-    .field
-      = f.label 'Dynamiska bookning'
-      = f.select :dyntime, ['on', 'off']
-    .field
-      = f.label "range of days for booking"
-      %br/
-      %br/
-      = f.select :bok_dur, ['7','14','30','60','90','365']
-    .field
-      = f.label "Max nummber off bookings"
-      %br/
-      %br/
-      = f.select :bok_day, ['1','2','3','4','5','6']
-    .actions
-      = f.submit "Submit", class: 'round button'
+  %table
+    %tr
+      %th
+        = form_for ([@building, @facility]) do |f|
+          .field
+            = f.label :name
+            %br/
+            = f.text_field :name
+          .field
+            = f.label :description
+            %br/
+            = f.text_area :description
+          .field
+            = f.label :rules
+            %br/
+            = f.text_field :rules
+            .field 
+              = f.label 'Available', style: "float:left;"
+              = f.check_box(:status, {}, true, false)
+            .field
+              = f.label 'Dynamiska bookning', style: "float:left;"
+              = f.select :dyntime, ['on', 'off']
+            .field
+              = f.label "Ad time limit to the booking", style: "float:left;"
+              %br/
+              %br/
+              = f.select :bok_dur, ['1','2','3','4','5','365']
+            .field
+              = f.label "Max nummber off bookings", style: "float:left;"
+              %br/
+              %br/
+              = f.select :bok_day, ['1','2','3','4','5','6']
+            .actions
+              = f.submit "Submit", class: 'button inc'
