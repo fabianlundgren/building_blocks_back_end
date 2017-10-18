@@ -32,4 +32,6 @@ class IndexController < ApplicationController
       session[:current_building_id] = @buildingnew.id
       redirect_back(fallback_location: root_path)
     end
+    @bookings = Booking.where('end_time < ?', Date.today)
+    @bookings.destroy_all
 end
