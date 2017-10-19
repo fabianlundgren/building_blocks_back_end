@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  # POST /users
+  # POST /users.json
   def index
     @users = User.where(building_id: session[:current_building_id])
   end
@@ -13,6 +15,8 @@ class UserController < ApplicationController
     @user.building_id = session[:current_building_id]
     if @user.save
       flash[:notice] = "New user created!"
+      binding.pry
+      UserMailer.welcome_email(@user).deliver
       redirect_to root_path
     end
   end
