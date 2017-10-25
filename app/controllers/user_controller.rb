@@ -8,6 +8,7 @@ class UserController < ApplicationController
   def new
     @user = User.new
     @code = [*('a'..'z'),*('0'..'9')].shuffle[0,8].join
+    session[:secret_user_code] = @code
   end
 
   def create
