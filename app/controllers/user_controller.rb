@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  # POST /users
+  # POST /users.json
   def index
     @users = User.where(building_id: session[:current_building_id])
   end
@@ -6,6 +8,7 @@ class UserController < ApplicationController
   def new
     @user = User.new
     @code = [*('a'..'z'),*('0'..'9')].shuffle[0,8].join
+    session[:secret_user_code] = @code
   end
 
   def create
@@ -13,6 +16,7 @@ class UserController < ApplicationController
     @user.building_id = session[:current_building_id]
     if @user.save
       flash[:notice] = "New user created!"
+      UserMailer.welcome_email(@user).deliver
       redirect_to root_path
     end
   end
